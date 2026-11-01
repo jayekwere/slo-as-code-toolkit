@@ -2,6 +2,14 @@
 
 The initial validation uses fictional definitions and a local Datadog contract simulator. No live Datadog credentials were provided, no live resources were created, and successful live integration is not claimed.
 
+## Live read-only verification attempt: November 1, 2026
+
+Credential availability was checked for v0.1.2 at commit `2a06e9fcf1d0aa7172367324884ed95d5fb20f1c`. No usable credentials were found in the checked environment variables, expected local configuration paths, named Datadog Keychain entries, or repository Datadog secret names. These checks cover the named sources, not every possible secret store.
+
+**Live verification was not performed.** The actual CLI `plan --live` command was exercised against the three fictional definitions with HTTPX sends intercepted to fail if called. It returned exit code **4** for missing credentials and made **zero HTTP sends**. This verifies the local credential gate only. It does not verify live authentication, regional endpoints, resource schemas or metric availability. No live resources were created or modified.
+
+[Credential-check and guard evidence](../evidence/live-read-only/2026-11-01.json) records only availability/status metadata, with no credential values or account resource data. To enable a future read-only check, supply `DD_API_KEY` and `DD_APP_KEY` through the execution environment or an approved credential store, and specify the intended `DD_SITE`. Do not paste credentials into chat or commit them. No package or runtime change was required for this evidence update.
+
 ## Patch release 0.1.2 and completed artifact review
 
 The previously deferred lock/artifact review is complete at the v0.1.1 baseline, with the results and limits documented in [artifact-review-0.1.2.md](artifact-review-0.1.2.md). All 59 third-party pinned versions, 796 recorded distributions, 24 existing evidence files, 16 published release assets and 177 archive members were checked. No dependency changes were needed. One offline-artifact issue was fixed: SVG font declarations could load CDN fonts. Version 0.1.2 uses system fonts; the two checked-in historical SVG copies are sanitized with original/sanitized hashes retained. Existing published releases are unchanged.

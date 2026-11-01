@@ -27,6 +27,10 @@ Use environment variables `DD_API_KEY` and `DD_APP_KEY` from an approved secret 
 
 HTTP connect timeout is 3 seconds, other request phases are 10 seconds. Responses are bounded to 4 MB and pagination to 100 pages. GET retries are capped at four total attempts, with delays capped at 5 seconds. HTTP 429 and 5xx, plus transport failures, are retried on reads. Authentication/authorization failures fail immediately. POST and PUT are never automatically retried: an unknown write outcome must be inspected and re-planned. This prevents duplicate creates after ambiguous timeouts. Pagination failure aborts the plan before mutation.
 
+## Latest availability check
+
+On November 1, 2026, v0.1.2 credential checks found no usable credentials in the named sources. `plan --live` stopped locally with exit 4 before any HTTP send. Live integration remains unverified, and no Datadog resources were changed. See the [recorded evidence](../evidence/live-read-only/2026-11-01.json) and [verification notes](verification.md) for exact scope and limitations.
+
 ## Optional live read-only verification
 
 After separately configuring scoped credentials in your environment:

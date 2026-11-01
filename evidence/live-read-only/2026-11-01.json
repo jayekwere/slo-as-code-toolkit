@@ -1,0 +1,53 @@
+{
+  "checked_at_utc": "2026-11-01T13:39:32.128846+00:00",
+  "client_date": "2026-11-01",
+  "reviewed_commit": "2a06e9fcf1d0aa7172367324884ed95d5fb20f1c",
+  "toolkit_version": "0.1.2",
+  "status": "not_performed_missing_credentials",
+  "credential_values_recorded": false,
+  "credential_checks": {
+    "environment": {
+      "DD_API_KEY": "absent",
+      "DD_APP_KEY": "absent",
+      "DD_APPLICATION_KEY": "absent",
+      "DATADOG_API_KEY": "absent",
+      "DATADOG_APP_KEY": "absent",
+      "DD_SITE": "absent",
+      "DD_HOST": "absent"
+    },
+    "local_configuration_files": {
+      ".env": "absent",
+      ".env.local": "absent",
+      ".env.datadog": "absent",
+      ".dogrc": "absent",
+      "~/.dogrc": "absent",
+      "~/.datadog.yaml": "absent",
+      "/opt/datadog-agent/etc/datadog.yaml": "absent"
+    },
+    "keychain_named_generic_password_metadata": {
+      "datadog": "no_matching_item",
+      "Datadog": "no_matching_item",
+      "DD_API_KEY": "no_matching_item",
+      "DD_APP_KEY": "no_matching_item"
+    },
+    "github_repository_datadog_secret_names": [],
+    "github_secret_values_accessed": false
+  },
+  "local_guard_check": {
+    "operation": "sloctl plan examples/public-api.yaml examples/auth-api.yaml examples/background-processing.yaml --live --site datadoghq.com",
+    "exit_code": 4,
+    "outcome": "missing credentials rejected before HTTP transport",
+    "network_interception": "HTTPX send patched to fail if called; this is a local guard check, not an API contract test",
+    "http_send_calls": 0
+  },
+  "datadog_api_requests": 0,
+  "live_mutation_requests": 0,
+  "live_read_only_verification": "not_performed",
+  "authentication_status": "not_tested",
+  "live_api_contract_status": "not_verified",
+  "limitations": [
+    "Checks cover only the named credential sources, not every possible secret store or file.",
+    "No live authentication, regional endpoint access, resource schemas, metric existence, or monitor validation was established."
+  ],
+  "next_step": "Provide DD_API_KEY and DD_APP_KEY through the execution environment or an approved Datadog credential store, plus the intended DD_SITE; use slos_read and monitors_read permissions. Do not paste credentials into chat or commit them."
+}
