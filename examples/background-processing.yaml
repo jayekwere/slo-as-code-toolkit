@@ -1,0 +1,7 @@
+version: 1
+name: background-processing
+kind: success
+target: 99.5
+days: 30
+good_query: "sum:background_processing.good{*}.as_count()"
+total_query: "sum:background_processing.total{*}.as_count()"

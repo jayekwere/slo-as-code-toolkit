@@ -1,0 +1,8 @@
+version: 1
+name: public-api
+kind: availability
+target: 99.9
+days: 30
+good_query: "sum:public_api.good{*}.as_count()"
+total_query: "sum:public_api.total{*}.as_count()"
+unexpected: true

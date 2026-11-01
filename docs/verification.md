@@ -1,0 +1,47 @@
+# Verification evidence
+
+The initial validation uses fictional definitions and a local Datadog contract simulator. No live Datadog credentials were provided, no live resources were created, and successful live integration is not claimed.
+
+## Measured local results
+
+- Python 3.14.6: 88 tests passed, 95.36% statement coverage (coverage gate: 85%).
+- Ruff lint and formatting passed; strict Mypy passed for all 11 source modules.
+- Locked runtime dependency audit: no known vulnerabilities; Gitleaks v8.30.1: no leaks found.
+- The pinned Python 3.12 Docker image built successfully. Its complete demo passed as UID 10001 with networking disabled, a read-only root filesystem, and a bounded temporary filesystem.
+- Wheel and sdist built twice with identical hashes. Exact release checksums are attached to the GitHub release.
+
+## Reproduce
+
+```sh
+uv sync --frozen --all-extras
+uv run --frozen ruff check .
+uv run --frozen ruff format --check .
+uv run --frozen mypy sloctl
+uv run --frozen pytest --junitxml=junit.xml
+uv run --frozen sloctl demo
+uv run --frozen python scripts/reproducible_build.py
+uv run --frozen pip-audit --disable-pip --require-hashes -r requirements.lock
+bash scripts/scan_secrets.sh
+```
+
+Tests include mathematical boundaries, schemas and adversarial inputs, fictional API contract fixtures, actual loopback HTTP operations, idempotency, drift, ownership collisions, concurrent updates, stale plans, unknown write outcomes, authentication and authorization failures, rate limits, timeouts, partial failures, redaction, exports and CLI exit codes. Coverage is measured, with an 85% minimum enforced by pytest. See `evidence/junit.xml` and CI artifacts for exact test results for each commit.
+
+The demo parses and validates all three service YAML files, computes budgets, generates three metric SLOs and six two-window burn monitors, saves before/desired plans, applies to the local simulator, verifies a second plan contains only noops, and simulates healthy and degraded windows. All six alerts fire for the fictional 10% failure scenario. Invalid examples are tested to fail before state creation.
+
+The terminal SVG and PNG are recorded real CLI output. The HTML and Markdown files contain generated configuration and explicitly synthetic observations. The SQLite database is intentionally excluded from Git; recreate it with the demo. `tests/fixtures` contains constructed response examples rather than account captures.
+
+The dependency audit found no known vulnerabilities in the locked runtime dependency set at validation time. The pinned Gitleaks scanner found no leaks. These results are point-in-time evidence, not guarantees against unknown vulnerabilities. CI repeats both checks and publishes their reports.
+
+The build verifier produces wheel and source distribution twice under a fixed SOURCE_DATE_EPOCH and compares byte hashes. It also writes `dist/checksums.json`. CI smoke-tests the installed wheel outside the source tree, including the bundled examples. Wheel hashes can match across supported Python versions; source artifact hashes change when source or evidence changes. Each release attaches the checksums for its own exact commit.
+
+The Python 3.12, 3.13 and 3.14 matrix, strict Mypy check, Ruff lint/format checks, dependency scan, secret scan, build reproducibility, and package smoke test run in GitHub Actions. Exact commit and CI links are recorded in release notes after completion.
+
+## Known limits
+
+- Live Datadog read-only verification remains pending until scoped credentials are available.
+- Actual metric existence, counter semantics, production alert sensitivity, and provider-side monitor validation cannot be proved offline.
+- Supported resources are metric-based SLOs and SLO burn monitors only, with one objective window per definition.
+- No atomic remote compare-and-swap, multi-resource transaction, automatic deletion, or distributed lock exists.
+- Removed service or alert identities are retained and are outside the supplied desired set; audit removals separately.
+- Simulation reuses synthetic aggregate ratios rather than replaying production telemetry.
+- The optional HTTP simulator is a loopback development service with no authentication.

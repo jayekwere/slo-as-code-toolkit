@@ -1,0 +1,9 @@
+{"kind": "slo", "key": "public-api", "action": "create", "id": "1"}
+{"kind": "monitor", "key": "public-api:fast", "action": "create", "id": 2}
+{"kind": "monitor", "key": "public-api:slow", "action": "create", "id": 3}
+{"kind": "slo", "key": "auth-api", "action": "create", "id": "4"}
+{"kind": "monitor", "key": "auth-api:fast", "action": "create", "id": 5}
+{"kind": "monitor", "key": "auth-api:slow", "action": "create", "id": 6}
+{"kind": "slo", "key": "background-processing", "action": "create", "id": "7"}
+{"kind": "monitor", "key": "background-processing:fast", "action": "create", "id": 8}
+{"kind": "monitor", "key": "background-processing:slow", "action": "create", "id": 9}

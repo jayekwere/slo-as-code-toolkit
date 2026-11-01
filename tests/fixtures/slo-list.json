@@ -1,0 +1,30 @@
+{
+  "data": [
+    {
+      "id": "1",
+      "name": "public-api",
+      "query": {
+        "denominator": "sum:public_api.total{*}.as_count()",
+        "numerator": "sum:public_api.good{*}.as_count()"
+      },
+      "tags": [
+        "managed-by:sloctl",
+        "sloctl-id:public-api"
+      ],
+      "thresholds": [
+        {
+          "target": 99.9,
+          "timeframe": "30d"
+        }
+      ],
+      "type": "metric",
+      "created_at": 1767225600,
+      "modified_at": 1767225600,
+      "creator": {
+        "email": "fictional@example.invalid",
+        "name": "Fictional Operator"
+      }
+    }
+  ],
+  "errors": []
+}

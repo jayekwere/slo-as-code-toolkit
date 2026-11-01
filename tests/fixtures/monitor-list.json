@@ -1,0 +1,23 @@
+[
+  {
+    "id": 2,
+    "message": "Investigate the service error budget. See the service runbook.",
+    "name": "public-api: fast",
+    "options": {
+      "notify_no_data": false,
+      "thresholds": {
+        "critical": 14.4
+      }
+    },
+    "query": "burn_rate(\"1\").over(\"30d\").long_window(\"1h\").short_window(\"5m\") > 14.4",
+    "tags": [
+      "managed-by:sloctl",
+      "sloctl-id:public-api:fast"
+    ],
+    "type": "slo alert",
+    "created": "2026-01-01T00:00:00+00:00",
+    "modified": "2026-01-01T00:00:00+00:00",
+    "overall_state": "OK",
+    "overall_state_modified": "2026-01-01T00:00:00+00:00"
+  }
+]

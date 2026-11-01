@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "name": "auth-api",
+  "kind": "success",
+  "target": 99.95,
+  "days": 30,
+  "good_query": "sum:auth_api.good{*}.as_count()",
+  "total_query": "sum:auth_api.total{*}.as_count()"
+}

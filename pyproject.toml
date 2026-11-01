@@ -1,0 +1,30 @@
+[build-system]
+requires = ["hatchling==1.33.0"]
+build-backend = "hatchling.build"
+[project]
+name = "slo-as-code-toolkit"
+version = "0.1.0"
+description = "Safe metric SLO planning, offline simulation, and Datadog reconciliation"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.12"
+dependencies = ["typer>=0.21,<1", "pydantic>=2.12,<3", "PyYAML>=6.0.3,<7", "rich>=14,<16", "httpx>=0.28,<1"]
+[project.optional-dependencies]
+dev = ["pytest>=9,<10", "pytest-cov>=7,<8", "ruff>=0.15,<1", "mypy>=1.19,<3", "types-PyYAML", "build", "pip-audit", "hatchling==1.33.0"]
+[project.scripts]
+sloctl = "sloctl.cli:app"
+[project.urls]
+Repository = "https://github.com/jayekwere/slo-as-code-toolkit"
+[tool.hatch.build.targets.wheel]
+packages = ["sloctl"]
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--cov=sloctl --cov-report=term-missing --cov-report=xml --cov-fail-under=85"
+[tool.ruff]
+line-length = 110
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I", "B", "SIM"]
+[tool.mypy]
+python_version = "3.12"
+strict = true
+ignore_missing_imports = true
