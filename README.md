@@ -94,3 +94,7 @@ flowchart LR
 Offline contracts establish local behavior; they do not establish successful live Datadog integration. No live resources have been created for this project. Metric existence, good-event subset semantics, production alert usefulness, and regional account permissions require separate verification.
 
 The toolkit only manages explicitly supplied service identities. Unrelated resources, removed definitions, and removed alert identities are retained. It never deletes resources. Datadog does not provide atomic compare-and-swap for these operations: remote writers can race between the preflight read and the write. Use one deployment writer and a shared external deployment lock for live operation. A multi-resource apply is not a transaction; recover by inspecting the audit, re-planning, and applying the remainder.
+
+---
+
+**AI assistance:** AI tools helped with code or documentation.
