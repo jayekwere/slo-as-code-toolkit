@@ -220,3 +220,36 @@ def test_bad_response_encoding_is_sanitized():
         assert "fictional-sensitive-detail" not in str(error.value)
     finally:
         client.close()
+
+
+def assert_svg_is_self_contained(data):
+    import re
+    import xml.etree.ElementTree as ET
+
+    root = ET.fromstring(data)
+    assert root.tag == "{http://www.w3.org/2000/svg}svg"
+    for element in root.iter():
+        assert element.tag.split("}")[-1] not in {"script", "foreignObject", "image", "use", "a"}
+        assert not any(key.lower().startswith("on") or key.endswith("href") for key in element.attrib)
+        if element.tag.endswith("}style"):
+            css = element.text or ""
+            assert "@font-face" not in css and "@import" not in css
+            for target in re.findall(r'url\(\s*[\'"]?([^\s\)\'"]+)', css):
+                assert target.startswith("#")
+    return root
+
+
+def test_demo_svg_has_no_network_dependencies(tmp_path):
+    output = tmp_path / "demo"
+    result = CliRunner().invoke(app, ["demo", "--output-dir", str(output)])
+    assert result.exit_code == 0, result.output
+    root = assert_svg_is_self_contained((output / "terminal.svg").read_text())
+    text = "".join(root.itertext()).replace("\u00a0", " ")
+    assert "Verified:" in text and "zero drift" in text and "public-api" in text
+
+
+def test_checked_in_svg_evidence_has_no_network_dependencies():
+    paths = list(Path("evidence").rglob("*.svg"))
+    assert paths
+    for path in paths:
+        assert_svg_is_self_contained(path.read_text())

@@ -16,7 +16,7 @@ from .models import Service, desired, monitor, read
 from .reconcile import Conflict, fingerprint, lock
 from .reconcile import apply as reconcile
 from .reconcile import plan as make_plan
-from .reports import write
+from .reports import TERMINAL_SVG_FORMAT, write
 from .security import redact
 from .simulator import Simulator
 
@@ -269,7 +269,11 @@ def demo(output_dir: Path = Path("demo-output")) -> None:
     export(paths, output_dir / "report.html", "html", good=9000)
     export(paths, output_dir / "report.md", "markdown", good=9000)
     console.print("Verified: 3 SLOs, 6 monitors, zero drift")
-    console.save_svg(str(output_dir / "terminal.svg"), title="sloctl offline demonstration")
+    console.save_svg(
+        str(output_dir / "terminal.svg"),
+        title="sloctl offline demonstration",
+        code_format=TERMINAL_SVG_FORMAT,
+    )
 
 
 @app.command()

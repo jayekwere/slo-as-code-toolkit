@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.2
+
+- Replace Rich's default SVG export template with a self-contained system-font template, removing automatic CDN font loads when viewing exports.
+- Sanitize the two checked-in historical SVG copies and retain before/after hashes. Published historical releases and tags are unchanged.
+- Complete the previously deferred dependency-lock and generated-artifact review: 59 locked third-party versions, 796 distribution records, 24 existing evidence files, 16 published assets, and 177 archive members.
+- Add SVG export regression tests and publish the integrity, advisory, provenance, and verification evidence.
+
 ## 0.1.1
 
 - Resolve newly created SLO references exactly, including service names sharing a prefix.

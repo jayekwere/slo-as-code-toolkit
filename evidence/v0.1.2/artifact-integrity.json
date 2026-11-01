@@ -1,0 +1,223 @@
+{
+  "tracked_evidence_files_reviewed": 24,
+  "files": [
+    {
+      "path": "evidence/coverage.xml",
+      "sha256": "958c3af3a5814bd3597035b82257686fc727ffbb03530343e6c983d6e8ac72a9",
+      "bytes": 23536,
+      "status": "passed",
+      "coverage": {
+        "lines-covered": "576",
+        "lines-valid": "604",
+        "line-rate": "0.9536"
+      }
+    },
+    {
+      "path": "evidence/demo/audit.jsonl",
+      "sha256": "4497d4dcc41ec7077fbdfe4e4af65df2cbfc793f7b152789fa69aebf2e3c894e",
+      "bytes": 681,
+      "status": "passed"
+    },
+    {
+      "path": "evidence/demo/plan.json",
+      "sha256": "fde0df876b89c7c0fa1f8f1cd2a32094ab2f3ac755466a25217944503d7a533f",
+      "bytes": 5789,
+      "status": "passed"
+    },
+    {
+      "path": "evidence/demo/report.html",
+      "sha256": "1b5d085c108b42316230c76a967d4bfcd3a246faac93490b31a1c9ca6710b72c",
+      "bytes": 12030,
+      "status": "passed"
+    },
+    {
+      "path": "evidence/demo/report.md",
+      "sha256": "27f702ee98741909b9ca4b08f8648ac1287ffbc32b1a5c43124105090e5c7201",
+      "bytes": 7608,
+      "status": "passed"
+    },
+    {
+      "path": "evidence/demo/terminal.png",
+      "sha256": "284f046134d533681a05e728a0d14f764338228b2a267a0f122cb1d6fb89da98",
+      "bytes": 306968,
+      "status": "passed",
+      "png": {
+        "width": 1800,
+        "height": 1800,
+        "chunks": [
+          "IHDR",
+          "sRGB",
+          "eXIf",
+          "IDAT",
+          "IDAT",
+          "IDAT",
+          "IDAT",
+          "IDAT",
+          "IDAT",
+          "IDAT",
+          "IDAT",
+          "IDAT",
+          "IDAT",
+          "IDAT",
+          "IDAT",
+          "IDAT",
+          "IDAT",
+          "IDAT",
+          "IDAT",
+          "IDAT",
+          "IDAT",
+          "IDAT",
+          "IEND"
+        ],
+        "trailing_bytes": 0
+      }
+    },
+    {
+      "path": "evidence/demo/terminal.svg",
+      "sha256": "bd1bb378dab5b169f58771c23f1c51797a92d42f57d3b245a6f18a11250a9e14",
+      "bytes": 43298,
+      "status": "passed"
+    },
+    {
+      "path": "evidence/demo/verified.json",
+      "sha256": "75b09475bfbe5000200cc16269e4c56fa929e3eba91002c3625e5e82f5181611",
+      "bytes": 10062,
+      "status": "passed"
+    },
+    {
+      "path": "evidence/dependency-audit.json",
+      "sha256": "0b5262e1e16ea46da861b4d70a933aa7145a662a1347ea721916f98a2a21ea69",
+      "bytes": 1106,
+      "status": "passed"
+    },
+    {
+      "path": "evidence/junit.xml",
+      "sha256": "90d8a006a94f430313f49cee6193f56a3018885c1aadddb10d8fe8e437f530f7",
+      "bytes": 7864,
+      "status": "passed",
+      "tests": 88
+    },
+    {
+      "path": "evidence/secret-scan.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3,
+      "status": "passed"
+    },
+    {
+      "path": "evidence/v0.1.1/coverage.xml",
+      "sha256": "4e765759f6371a8d2e58b2f11b2fc4f64417073210db6fefa81dd62894b036f1",
+      "bytes": 25290,
+      "status": "passed",
+      "coverage": {
+        "lines-covered": "622",
+        "lines-valid": "653",
+        "line-rate": "0.9525"
+      }
+    },
+    {
+      "path": "evidence/v0.1.1/demo/audit.jsonl",
+      "sha256": "4497d4dcc41ec7077fbdfe4e4af65df2cbfc793f7b152789fa69aebf2e3c894e",
+      "bytes": 681,
+      "status": "passed"
+    },
+    {
+      "path": "evidence/v0.1.1/demo/plan.json",
+      "sha256": "fde0df876b89c7c0fa1f8f1cd2a32094ab2f3ac755466a25217944503d7a533f",
+      "bytes": 5789,
+      "status": "passed"
+    },
+    {
+      "path": "evidence/v0.1.1/demo/report.html",
+      "sha256": "1b5d085c108b42316230c76a967d4bfcd3a246faac93490b31a1c9ca6710b72c",
+      "bytes": 12030,
+      "status": "passed"
+    },
+    {
+      "path": "evidence/v0.1.1/demo/report.md",
+      "sha256": "27f702ee98741909b9ca4b08f8648ac1287ffbc32b1a5c43124105090e5c7201",
+      "bytes": 7608,
+      "status": "passed"
+    },
+    {
+      "path": "evidence/v0.1.1/demo/terminal.svg",
+      "sha256": "449f3fd88bce5685f4b9bfec971d6ce37d749da26fa6350621aff56df811d562",
+      "bytes": 43816,
+      "status": "passed"
+    },
+    {
+      "path": "evidence/v0.1.1/demo/verified.json",
+      "sha256": "75b09475bfbe5000200cc16269e4c56fa929e3eba91002c3625e5e82f5181611",
+      "bytes": 10062,
+      "status": "passed"
+    },
+    {
+      "path": "evidence/v0.1.1/dependency-audit.json",
+      "sha256": "0b5262e1e16ea46da861b4d70a933aa7145a662a1347ea721916f98a2a21ea69",
+      "bytes": 1106,
+      "status": "passed"
+    },
+    {
+      "path": "evidence/v0.1.1/docker-demo.txt",
+      "sha256": "b628c9173da16d304f9efd1f8b34f13119e1a93c73fd640b962ba8798b0dafc3",
+      "bytes": 3771,
+      "status": "passed"
+    },
+    {
+      "path": "evidence/v0.1.1/hosted-ci.json",
+      "sha256": "4adbd093b03bc0dfeed7c0e80a80b95f3dcadb59ae34f7ca2999c1f56896fe37",
+      "bytes": 395,
+      "status": "passed"
+    },
+    {
+      "path": "evidence/v0.1.1/junit.xml",
+      "sha256": "cb0ce80a750b98e0c91322735c7d9524628567f1896054fab87af1fb33b49299",
+      "bytes": 9813,
+      "status": "passed",
+      "tests": 104
+    },
+    {
+      "path": "evidence/v0.1.1/secret-scan.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3,
+      "status": "passed"
+    },
+    {
+      "path": "evidence/v0.1.1/verification.json",
+      "sha256": "92cb925bd8764de3162bed30c53cc8aeaf8fa3acbce2e72936fbe619f3de8f30",
+      "bytes": 716,
+      "status": "passed"
+    }
+  ],
+  "release_archives": [
+    {
+      "version": "0.1.0",
+      "commit": "064174800e16a2d3c5675831d88ab826c4b7f814",
+      "archive_members_verified": 81,
+      "sha256": {
+        "slo_as_code_toolkit-0.1.0-py3-none-any.whl": "d094aed79cda4cd9a8f08d5f6b0a55af426aa97ba5fb241b2e4b4b784cc8702b",
+        "slo_as_code_toolkit-0.1.0.tar.gz": "ffc85d2cc73ae7c4d4bdc3df32b19a932dd88834c4cc56a253c45c45415026d3"
+      },
+      "status": "passed"
+    },
+    {
+      "version": "0.1.1",
+      "commit": "432240cb5553bb7c1597f14e60b66f69cc7f87af",
+      "archive_members_verified": 96,
+      "sha256": {
+        "slo_as_code_toolkit-0.1.1.tar.gz": "c9e640ffc2b72edd32769ba1b85dff6fc4b363cf76de32ab8b8c4cbf5e4b9ac5",
+        "slo_as_code_toolkit-0.1.1-py3-none-any.whl": "071c49880fa13559926ad985e8c5715ed8571204d885de171447a7e204736402"
+      },
+      "status": "passed"
+    }
+  ],
+  "ci_release_packages_byte_identical": true,
+  "ci_release_junit_coverage_byte_identical": true,
+  "external_font_references": [],
+  "limitations": [
+    "Historical artifacts are checked for structural integrity and semantic consistency; this does not independently reproduce historical test executions.",
+    "Third-party package code is not executed or fully source-audited."
+  ],
+  "reviewed_baseline_commit": "432240cb5553bb7c1597f14e60b66f69cc7f87af",
+  "review_state": "Original 24 tracked evidence files; two current working-tree SVG copies sanitized. See svg-remediation.json for original and sanitized hashes.",
+  "post_fix_external_resource_references": 0
+}

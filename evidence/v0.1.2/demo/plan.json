@@ -1,0 +1,217 @@
+{
+  "changes": [
+    {
+      "action": "create",
+      "before": null,
+      "desired": {
+        "name": "public-api",
+        "query": {
+          "denominator": "sum:public_api.total{*}.as_count()",
+          "numerator": "sum:public_api.good{*}.as_count()"
+        },
+        "tags": [
+          "managed-by:sloctl",
+          "sloctl-id:public-api"
+        ],
+        "thresholds": [
+          {
+            "target": 99.9,
+            "timeframe": "30d"
+          }
+        ],
+        "type": "metric"
+      },
+      "id": null,
+      "key": "public-api",
+      "kind": "slo"
+    },
+    {
+      "action": "create",
+      "before": null,
+      "desired": {
+        "message": "Investigate the service error budget. See the service runbook.",
+        "name": "public-api: fast",
+        "options": {
+          "notify_no_data": false,
+          "thresholds": {
+            "critical": 14.4
+          }
+        },
+        "query": "burn_rate(\"REF:public-api\").over(\"30d\").long_window(\"1h\").short_window(\"5m\") > 14.4",
+        "tags": [
+          "managed-by:sloctl",
+          "sloctl-id:public-api:fast"
+        ],
+        "type": "slo alert"
+      },
+      "id": null,
+      "key": "public-api:fast",
+      "kind": "monitor"
+    },
+    {
+      "action": "create",
+      "before": null,
+      "desired": {
+        "message": "Investigate the service error budget. See the service runbook.",
+        "name": "public-api: slow",
+        "options": {
+          "notify_no_data": false,
+          "thresholds": {
+            "critical": 6.0
+          }
+        },
+        "query": "burn_rate(\"REF:public-api\").over(\"30d\").long_window(\"6h\").short_window(\"30m\") > 6.0",
+        "tags": [
+          "managed-by:sloctl",
+          "sloctl-id:public-api:slow"
+        ],
+        "type": "slo alert"
+      },
+      "id": null,
+      "key": "public-api:slow",
+      "kind": "monitor"
+    },
+    {
+      "action": "create",
+      "before": null,
+      "desired": {
+        "name": "auth-api",
+        "query": {
+          "denominator": "sum:auth_api.total{*}.as_count()",
+          "numerator": "sum:auth_api.good{*}.as_count()"
+        },
+        "tags": [
+          "managed-by:sloctl",
+          "sloctl-id:auth-api"
+        ],
+        "thresholds": [
+          {
+            "target": 99.95,
+            "timeframe": "30d"
+          }
+        ],
+        "type": "metric"
+      },
+      "id": null,
+      "key": "auth-api",
+      "kind": "slo"
+    },
+    {
+      "action": "create",
+      "before": null,
+      "desired": {
+        "message": "Investigate the service error budget. See the service runbook.",
+        "name": "auth-api: fast",
+        "options": {
+          "notify_no_data": false,
+          "thresholds": {
+            "critical": 14.4
+          }
+        },
+        "query": "burn_rate(\"REF:auth-api\").over(\"30d\").long_window(\"1h\").short_window(\"5m\") > 14.4",
+        "tags": [
+          "managed-by:sloctl",
+          "sloctl-id:auth-api:fast"
+        ],
+        "type": "slo alert"
+      },
+      "id": null,
+      "key": "auth-api:fast",
+      "kind": "monitor"
+    },
+    {
+      "action": "create",
+      "before": null,
+      "desired": {
+        "message": "Investigate the service error budget. See the service runbook.",
+        "name": "auth-api: slow",
+        "options": {
+          "notify_no_data": false,
+          "thresholds": {
+            "critical": 6.0
+          }
+        },
+        "query": "burn_rate(\"REF:auth-api\").over(\"30d\").long_window(\"6h\").short_window(\"30m\") > 6.0",
+        "tags": [
+          "managed-by:sloctl",
+          "sloctl-id:auth-api:slow"
+        ],
+        "type": "slo alert"
+      },
+      "id": null,
+      "key": "auth-api:slow",
+      "kind": "monitor"
+    },
+    {
+      "action": "create",
+      "before": null,
+      "desired": {
+        "name": "background-processing",
+        "query": {
+          "denominator": "sum:background_processing.total{*}.as_count()",
+          "numerator": "sum:background_processing.good{*}.as_count()"
+        },
+        "tags": [
+          "managed-by:sloctl",
+          "sloctl-id:background-processing"
+        ],
+        "thresholds": [
+          {
+            "target": 99.5,
+            "timeframe": "30d"
+          }
+        ],
+        "type": "metric"
+      },
+      "id": null,
+      "key": "background-processing",
+      "kind": "slo"
+    },
+    {
+      "action": "create",
+      "before": null,
+      "desired": {
+        "message": "Investigate the service error budget. See the service runbook.",
+        "name": "background-processing: fast",
+        "options": {
+          "notify_no_data": false,
+          "thresholds": {
+            "critical": 14.4
+          }
+        },
+        "query": "burn_rate(\"REF:background-processing\").over(\"30d\").long_window(\"1h\").short_window(\"5m\") > 14.4",
+        "tags": [
+          "managed-by:sloctl",
+          "sloctl-id:background-processing:fast"
+        ],
+        "type": "slo alert"
+      },
+      "id": null,
+      "key": "background-processing:fast",
+      "kind": "monitor"
+    },
+    {
+      "action": "create",
+      "before": null,
+      "desired": {
+        "message": "Investigate the service error budget. See the service runbook.",
+        "name": "background-processing: slow",
+        "options": {
+          "notify_no_data": false,
+          "thresholds": {
+            "critical": 6.0
+          }
+        },
+        "query": "burn_rate(\"REF:background-processing\").over(\"30d\").long_window(\"6h\").short_window(\"30m\") > 6.0",
+        "tags": [
+          "managed-by:sloctl",
+          "sloctl-id:background-processing:slow"
+        ],
+        "type": "slo alert"
+      },
+      "id": null,
+      "key": "background-processing:slow",
+      "kind": "monitor"
+    }
+  ]
+}

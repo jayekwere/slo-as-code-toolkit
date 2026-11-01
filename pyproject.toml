@@ -3,7 +3,7 @@ requires = ["hatchling==1.33.0"]
 build-backend = "hatchling.build"
 [project]
 name = "slo-as-code-toolkit"
-version = "0.1.1"
+version = "0.1.2"
 description = "Safe metric SLO planning, offline simulation, and Datadog reconciliation"
 readme = "README.md"
 license = "MIT"

@@ -1,0 +1,119 @@
+{
+  "assets": [
+    {
+      "version": "0.1.0",
+      "name": "checksums.json",
+      "sha256": "2c2698f3e63d3d7e02a0e38c47b3cd1337a69d09eb39c82cfa04ac8f3d903f60",
+      "bytes": 225,
+      "github_digest_matches": true
+    },
+    {
+      "version": "0.1.0",
+      "name": "report.html",
+      "sha256": "1b5d085c108b42316230c76a967d4bfcd3a246faac93490b31a1c9ca6710b72c",
+      "bytes": 12030,
+      "github_digest_matches": true
+    },
+    {
+      "version": "0.1.0",
+      "name": "report.md",
+      "sha256": "27f702ee98741909b9ca4b08f8648ac1287ffbc32b1a5c43124105090e5c7201",
+      "bytes": 7608,
+      "github_digest_matches": true
+    },
+    {
+      "version": "0.1.0",
+      "name": "slo_as_code_toolkit-0.1.0-py3-none-any.whl",
+      "sha256": "d094aed79cda4cd9a8f08d5f6b0a55af426aa97ba5fb241b2e4b4b784cc8702b",
+      "bytes": 21481,
+      "github_digest_matches": true
+    },
+    {
+      "version": "0.1.0",
+      "name": "slo_as_code_toolkit-0.1.0.tar.gz",
+      "sha256": "ffc85d2cc73ae7c4d4bdc3df32b19a932dd88834c4cc56a253c45c45415026d3",
+      "bytes": 390246,
+      "github_digest_matches": true
+    },
+    {
+      "version": "0.1.0",
+      "name": "terminal.png",
+      "sha256": "284f046134d533681a05e728a0d14f764338228b2a267a0f122cb1d6fb89da98",
+      "bytes": 306968,
+      "github_digest_matches": true
+    },
+    {
+      "version": "0.1.0",
+      "name": "terminal.svg",
+      "sha256": "1add805df47e7897f96454a70cefecadc7d36c722d029cf8e6ae52c165a2819a",
+      "bytes": 44085,
+      "github_digest_matches": true
+    },
+    {
+      "version": "0.1.1",
+      "name": "checksums.json",
+      "sha256": "eaa993dfbd8de09c4947fd50606adc1dd4d2f07ade3d87f67a3c9cb21f710231",
+      "bytes": 225,
+      "github_digest_matches": true
+    },
+    {
+      "version": "0.1.1",
+      "name": "coverage.xml",
+      "sha256": "254e12cbe4ed94fa911c2b29ee96914c65769f6e6ec5645282987f8a6c3d1750",
+      "bytes": 25591,
+      "github_digest_matches": true
+    },
+    {
+      "version": "0.1.1",
+      "name": "junit.xml",
+      "sha256": "900e3098b6d8b4927267ced7bb738c6a768e29d30f130a3d6c62b8399958e980",
+      "bytes": 9812,
+      "github_digest_matches": true
+    },
+    {
+      "version": "0.1.1",
+      "name": "report.html",
+      "sha256": "1b5d085c108b42316230c76a967d4bfcd3a246faac93490b31a1c9ca6710b72c",
+      "bytes": 12030,
+      "github_digest_matches": true
+    },
+    {
+      "version": "0.1.1",
+      "name": "report.md",
+      "sha256": "27f702ee98741909b9ca4b08f8648ac1287ffbc32b1a5c43124105090e5c7201",
+      "bytes": 7608,
+      "github_digest_matches": true
+    },
+    {
+      "version": "0.1.1",
+      "name": "review-0.1.1.md",
+      "sha256": "7b082dc8207c757dc72bdb2521a7c7bedc562fcdc337e0f671cc07d9aa1da07d",
+      "bytes": 4037,
+      "github_digest_matches": true
+    },
+    {
+      "version": "0.1.1",
+      "name": "slo_as_code_toolkit-0.1.1-py3-none-any.whl",
+      "sha256": "071c49880fa13559926ad985e8c5715ed8571204d885de171447a7e204736402",
+      "bytes": 22180,
+      "github_digest_matches": true
+    },
+    {
+      "version": "0.1.1",
+      "name": "slo_as_code_toolkit-0.1.1.tar.gz",
+      "sha256": "c9e640ffc2b72edd32769ba1b85dff6fc4b363cf76de32ab8b8c4cbf5e4b9ac5",
+      "bytes": 407206,
+      "github_digest_matches": true
+    },
+    {
+      "version": "0.1.1",
+      "name": "terminal.svg",
+      "sha256": "652d947d99a1dae75fae0dfd7770827a8ef37e283dceb6f25b9e7d6476b7c72e",
+      "bytes": 44591,
+      "github_digest_matches": true
+    }
+  ],
+  "all_github_digests_match": true,
+  "terminal_report_assets_match_original_tagged_source": true,
+  "console_entry_point_verified": true
+}

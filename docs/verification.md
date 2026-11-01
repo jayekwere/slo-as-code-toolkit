@@ -2,6 +2,12 @@
 
 The initial validation uses fictional definitions and a local Datadog contract simulator. No live Datadog credentials were provided, no live resources were created, and successful live integration is not claimed.
 
+## Patch release 0.1.2 and completed artifact review
+
+The previously deferred lock/artifact review is complete at the v0.1.1 baseline, with the results and limits documented in [artifact-review-0.1.2.md](artifact-review-0.1.2.md). All 59 third-party pinned versions, 796 recorded distributions, 24 existing evidence files, 16 published release assets and 177 archive members were checked. No dependency changes were needed. One offline-artifact issue was fixed: SVG font declarations could load CDN fonts. Version 0.1.2 uses system fonts; the two checked-in historical SVG copies are sanitized with original/sanitized hashes retained. Existing published releases are unchanged.
+
+The local suite passes **106 tests** with **95.26% statement coverage**. [Verification](../evidence/v0.1.2/verification.json), [lock integrity](../evidence/v0.1.2/lock-integrity.json), [artifact integrity](../evidence/v0.1.2/artifact-integrity.json), and the full [pinned-version advisory report](../evidence/v0.1.2/all-pinned-audit.json) retain the evidence. The original static scan's partial result remains a historical record; this follow-up closes its named deferred areas rather than rewriting it.
+
 ## Patch release 0.1.1
 
 The final review and patch are described in [review-0.1.1.md](review-0.1.1.md). The patch adds 16 behavioral regression cases, for **104 passing tests** on local Python 3.14.6 and **95.25% statement coverage** (653 statements, 622 covered). [JUnit](../evidence/v0.1.1/junit.xml) and [coverage XML](../evidence/v0.1.1/coverage.xml) retain the measured results. [Hosted CI run 41310454797](https://github.com/jayekwere/slo-as-code-toolkit/actions/runs/41310454797) passed all five jobs on implementation commit [`d34f989ce0552be636d9b95f08bdab5e78581b61`](https://github.com/jayekwere/slo-as-code-toolkit/commit/d34f989ce0552be636d9b95f08bdab5e78581b61). Each Python matrix job passed all 104 tests. Exact hosted Python 3.12 coverage is retained in [hosted-ci.json](../evidence/v0.1.1/hosted-ci.json). The v0.1.1 GitHub release links the final evidence commit's passing CI and attaches its CI-built packages and checksums.

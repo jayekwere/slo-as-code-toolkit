@@ -1,0 +1,266 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width'><title>Reliability report</title><style>body{background:#0d1423;color:#dce8f6;font:16px system-ui;max-width:1100px;margin:3rem auto;padding:1rem}h1{font-size:2.7rem;margin:.4rem 0;color:#72e4bc}p{line-height:1.7;color:#b9c9dc}.label{font-size:.8rem;letter-spacing:.16em;color:#72e4bc}.scroll{overflow:auto}table{width:100%;border-collapse:collapse;margin:2rem 0;background:#172338}th,td{text-align:left;padding:1rem;border-bottom:1px solid #304058}th{color:#72e4bc;font-size:.85rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#172338;padding:2rem;border-radius:12px;font-size:.85rem}summary{cursor:pointer;padding:1rem 0}footer{margin-top:2rem;color:#9eafc4}</style></head><body><div class='label'>SLO-AS-CODE TOOLKIT / SYNTHETIC SCENARIO</div><h1>Reliability report</h1><p>Generated configuration and fictional event observations. These values do not represent live service reliability. A negative remaining budget means the observed allowance was exceeded.</p><div class='scroll'><table><thead><tr><th>Service</th><th>SLI</th><th>Target</th><th>Window</th><th>Budget events</th><th>Remaining</th><th>Burn rate</th></tr></thead><tbody><tr><td>public-api</td><td>availability</td><td>99.9%</td><td>30d</td><td>10.0</td><td>-990.0</td><td>100.0</td></tr><tr><td>auth-api</td><td>success</td><td>99.95%</td><td>30d</td><td>5.0</td><td>-995.0</td><td>200.0</td></tr><tr><td>background-processing</td><td>success</td><td>99.5%</td><td>30d</td><td>50.0</td><td>-950.0</td><td>20.0</td></tr></tbody></table></div><details><summary>Inspect definitions, SLOs, monitors, and calculations</summary><pre>{
+  &quot;services&quot;: [
+    {
+      &quot;budget&quot;: {
+        &quot;allowed_bad_events&quot;: 10.0,
+        &quot;availability&quot;: 90.0,
+        &quot;bad_events&quot;: 1000,
+        &quot;burn_rate&quot;: 100.0,
+        &quot;consumption&quot;: 100.0,
+        &quot;remaining_bad_events&quot;: -990.0,
+        &quot;status&quot;: &quot;observed&quot;
+      },
+      &quot;definition&quot;: {
+        &quot;alerts&quot;: [
+          {
+            &quot;burn_rate&quot;: 14.4,
+            &quot;long_hours&quot;: 1,
+            &quot;name&quot;: &quot;fast&quot;,
+            &quot;short_minutes&quot;: 5
+          },
+          {
+            &quot;burn_rate&quot;: 6.0,
+            &quot;long_hours&quot;: 6,
+            &quot;name&quot;: &quot;slow&quot;,
+            &quot;short_minutes&quot;: 30
+          }
+        ],
+        &quot;days&quot;: 30,
+        &quot;good_query&quot;: &quot;sum:public_api.good{*}.as_count()&quot;,
+        &quot;kind&quot;: &quot;availability&quot;,
+        &quot;latency_threshold_ms&quot;: null,
+        &quot;name&quot;: &quot;public-api&quot;,
+        &quot;target&quot;: 99.9,
+        &quot;total_query&quot;: &quot;sum:public_api.total{*}.as_count()&quot;,
+        &quot;version&quot;: 1
+      },
+      &quot;monitors&quot;: [
+        {
+          &quot;message&quot;: &quot;Investigate the service error budget. See the service runbook.&quot;,
+          &quot;name&quot;: &quot;public-api: fast&quot;,
+          &quot;options&quot;: {
+            &quot;notify_no_data&quot;: false,
+            &quot;thresholds&quot;: {
+              &quot;critical&quot;: 14.4
+            }
+          },
+          &quot;query&quot;: &quot;burn_rate(\&quot;REF:public-api\&quot;).over(\&quot;30d\&quot;).long_window(\&quot;1h\&quot;).short_window(\&quot;5m\&quot;) &gt; 14.4&quot;,
+          &quot;tags&quot;: [
+            &quot;managed-by:sloctl&quot;,
+            &quot;sloctl-id:public-api:fast&quot;
+          ],
+          &quot;type&quot;: &quot;slo alert&quot;
+        },
+        {
+          &quot;message&quot;: &quot;Investigate the service error budget. See the service runbook.&quot;,
+          &quot;name&quot;: &quot;public-api: slow&quot;,
+          &quot;options&quot;: {
+            &quot;notify_no_data&quot;: false,
+            &quot;thresholds&quot;: {
+              &quot;critical&quot;: 6.0
+            }
+          },
+          &quot;query&quot;: &quot;burn_rate(\&quot;REF:public-api\&quot;).over(\&quot;30d\&quot;).long_window(\&quot;6h\&quot;).short_window(\&quot;30m\&quot;) &gt; 6.0&quot;,
+          &quot;tags&quot;: [
+            &quot;managed-by:sloctl&quot;,
+            &quot;sloctl-id:public-api:slow&quot;
+          ],
+          &quot;type&quot;: &quot;slo alert&quot;
+        }
+      ],
+      &quot;slo&quot;: {
+        &quot;name&quot;: &quot;public-api&quot;,
+        &quot;query&quot;: {
+          &quot;denominator&quot;: &quot;sum:public_api.total{*}.as_count()&quot;,
+          &quot;numerator&quot;: &quot;sum:public_api.good{*}.as_count()&quot;
+        },
+        &quot;tags&quot;: [
+          &quot;managed-by:sloctl&quot;,
+          &quot;sloctl-id:public-api&quot;
+        ],
+        &quot;thresholds&quot;: [
+          {
+            &quot;target&quot;: 99.9,
+            &quot;timeframe&quot;: &quot;30d&quot;
+          }
+        ],
+        &quot;type&quot;: &quot;metric&quot;
+      }
+    },
+    {
+      &quot;budget&quot;: {
+        &quot;allowed_bad_events&quot;: 5.0,
+        &quot;availability&quot;: 90.0,
+        &quot;bad_events&quot;: 1000,
+        &quot;burn_rate&quot;: 200.0,
+        &quot;consumption&quot;: 200.0,
+        &quot;remaining_bad_events&quot;: -995.0,
+        &quot;status&quot;: &quot;observed&quot;
+      },
+      &quot;definition&quot;: {
+        &quot;alerts&quot;: [
+          {
+            &quot;burn_rate&quot;: 14.4,
+            &quot;long_hours&quot;: 1,
+            &quot;name&quot;: &quot;fast&quot;,
+            &quot;short_minutes&quot;: 5
+          },
+          {
+            &quot;burn_rate&quot;: 6.0,
+            &quot;long_hours&quot;: 6,
+            &quot;name&quot;: &quot;slow&quot;,
+            &quot;short_minutes&quot;: 30
+          }
+        ],
+        &quot;days&quot;: 30,
+        &quot;good_query&quot;: &quot;sum:auth_api.good{*}.as_count()&quot;,
+        &quot;kind&quot;: &quot;success&quot;,
+        &quot;latency_threshold_ms&quot;: null,
+        &quot;name&quot;: &quot;auth-api&quot;,
+        &quot;target&quot;: 99.95,
+        &quot;total_query&quot;: &quot;sum:auth_api.total{*}.as_count()&quot;,
+        &quot;version&quot;: 1
+      },
+      &quot;monitors&quot;: [
+        {
+          &quot;message&quot;: &quot;Investigate the service error budget. See the service runbook.&quot;,
+          &quot;name&quot;: &quot;auth-api: fast&quot;,
+          &quot;options&quot;: {
+            &quot;notify_no_data&quot;: false,
+            &quot;thresholds&quot;: {
+              &quot;critical&quot;: 14.4
+            }
+          },
+          &quot;query&quot;: &quot;burn_rate(\&quot;REF:auth-api\&quot;).over(\&quot;30d\&quot;).long_window(\&quot;1h\&quot;).short_window(\&quot;5m\&quot;) &gt; 14.4&quot;,
+          &quot;tags&quot;: [
+            &quot;managed-by:sloctl&quot;,
+            &quot;sloctl-id:auth-api:fast&quot;
+          ],
+          &quot;type&quot;: &quot;slo alert&quot;
+        },
+        {
+          &quot;message&quot;: &quot;Investigate the service error budget. See the service runbook.&quot;,
+          &quot;name&quot;: &quot;auth-api: slow&quot;,
+          &quot;options&quot;: {
+            &quot;notify_no_data&quot;: false,
+            &quot;thresholds&quot;: {
+              &quot;critical&quot;: 6.0
+            }
+          },
+          &quot;query&quot;: &quot;burn_rate(\&quot;REF:auth-api\&quot;).over(\&quot;30d\&quot;).long_window(\&quot;6h\&quot;).short_window(\&quot;30m\&quot;) &gt; 6.0&quot;,
+          &quot;tags&quot;: [
+            &quot;managed-by:sloctl&quot;,
+            &quot;sloctl-id:auth-api:slow&quot;
+          ],
+          &quot;type&quot;: &quot;slo alert&quot;
+        }
+      ],
+      &quot;slo&quot;: {
+        &quot;name&quot;: &quot;auth-api&quot;,
+        &quot;query&quot;: {
+          &quot;denominator&quot;: &quot;sum:auth_api.total{*}.as_count()&quot;,
+          &quot;numerator&quot;: &quot;sum:auth_api.good{*}.as_count()&quot;
+        },
+        &quot;tags&quot;: [
+          &quot;managed-by:sloctl&quot;,
+          &quot;sloctl-id:auth-api&quot;
+        ],
+        &quot;thresholds&quot;: [
+          {
+            &quot;target&quot;: 99.95,
+            &quot;timeframe&quot;: &quot;30d&quot;
+          }
+        ],
+        &quot;type&quot;: &quot;metric&quot;
+      }
+    },
+    {
+      &quot;budget&quot;: {
+        &quot;allowed_bad_events&quot;: 50.0,
+        &quot;availability&quot;: 90.0,
+        &quot;bad_events&quot;: 1000,
+        &quot;burn_rate&quot;: 20.0,
+        &quot;consumption&quot;: 20.0,
+        &quot;remaining_bad_events&quot;: -950.0,
+        &quot;status&quot;: &quot;observed&quot;
+      },
+      &quot;definition&quot;: {
+        &quot;alerts&quot;: [
+          {
+            &quot;burn_rate&quot;: 14.4,
+            &quot;long_hours&quot;: 1,
+            &quot;name&quot;: &quot;fast&quot;,
+            &quot;short_minutes&quot;: 5
+          },
+          {
+            &quot;burn_rate&quot;: 6.0,
+            &quot;long_hours&quot;: 6,
+            &quot;name&quot;: &quot;slow&quot;,
+            &quot;short_minutes&quot;: 30
+          }
+        ],
+        &quot;days&quot;: 30,
+        &quot;good_query&quot;: &quot;sum:background_processing.good{*}.as_count()&quot;,
+        &quot;kind&quot;: &quot;success&quot;,
+        &quot;latency_threshold_ms&quot;: null,
+        &quot;name&quot;: &quot;background-processing&quot;,
+        &quot;target&quot;: 99.5,
+        &quot;total_query&quot;: &quot;sum:background_processing.total{*}.as_count()&quot;,
+        &quot;version&quot;: 1
+      },
+      &quot;monitors&quot;: [
+        {
+          &quot;message&quot;: &quot;Investigate the service error budget. See the service runbook.&quot;,
+          &quot;name&quot;: &quot;background-processing: fast&quot;,
+          &quot;options&quot;: {
+            &quot;notify_no_data&quot;: false,
+            &quot;thresholds&quot;: {
+              &quot;critical&quot;: 14.4
+            }
+          },
+          &quot;query&quot;: &quot;burn_rate(\&quot;REF:background-processing\&quot;).over(\&quot;30d\&quot;).long_window(\&quot;1h\&quot;).short_window(\&quot;5m\&quot;) &gt; 14.4&quot;,
+          &quot;tags&quot;: [
+            &quot;managed-by:sloctl&quot;,
+            &quot;sloctl-id:background-processing:fast&quot;
+          ],
+          &quot;type&quot;: &quot;slo alert&quot;
+        },
+        {
+          &quot;message&quot;: &quot;Investigate the service error budget. See the service runbook.&quot;,
+          &quot;name&quot;: &quot;background-processing: slow&quot;,
+          &quot;options&quot;: {
+            &quot;notify_no_data&quot;: false,
+            &quot;thresholds&quot;: {
+              &quot;critical&quot;: 6.0
+            }
+          },
+          &quot;query&quot;: &quot;burn_rate(\&quot;REF:background-processing\&quot;).over(\&quot;30d\&quot;).long_window(\&quot;6h\&quot;).short_window(\&quot;30m\&quot;) &gt; 6.0&quot;,
+          &quot;tags&quot;: [
+            &quot;managed-by:sloctl&quot;,
+            &quot;sloctl-id:background-processing:slow&quot;
+          ],
+          &quot;type&quot;: &quot;slo alert&quot;
+        }
+      ],
+      &quot;slo&quot;: {
+        &quot;name&quot;: &quot;background-processing&quot;,
+        &quot;query&quot;: {
+          &quot;denominator&quot;: &quot;sum:background_processing.total{*}.as_count()&quot;,
+          &quot;numerator&quot;: &quot;sum:background_processing.good{*}.as_count()&quot;
+        },
+        &quot;tags&quot;: [
+          &quot;managed-by:sloctl&quot;,
+          &quot;sloctl-id:background-processing&quot;
+        ],
+        &quot;thresholds&quot;: [
+          {
+            &quot;target&quot;: 99.5,
+            &quot;timeframe&quot;: &quot;30d&quot;
+          }
+        ],
+        &quot;type&quot;: &quot;metric&quot;
+      }
+    }
+  ],
+  &quot;synthetic&quot;: true
+}</pre></details><footer>Metric SLOs · Explicit approval · Ownership-scoped reconciliation</footer></body></html>

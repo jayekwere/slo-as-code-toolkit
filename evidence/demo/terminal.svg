@@ -2,22 +2,8 @@
     <!-- Generated with Rich https://www.textualize.io -->
     <style>
 
-    @font-face {
-        font-family: "Fira Code";
-        src: local("FiraCode-Regular"),
-                url("https://cdnjs.cloudflare.com/ajax/libs/firacode/6.2.0/woff2/FiraCode-Regular.woff2") format("woff2"),
-                url("https://cdnjs.cloudflare.com/ajax/libs/firacode/6.2.0/woff/FiraCode-Regular.woff") format("woff");
-        font-style: normal;
-        font-weight: 400;
-    }
-    @font-face {
-        font-family: "Fira Code";
-        src: local("FiraCode-Bold"),
-                url("https://cdnjs.cloudflare.com/ajax/libs/firacode/6.2.0/woff2/FiraCode-Bold.woff2") format("woff2"),
-                url("https://cdnjs.cloudflare.com/ajax/libs/firacode/6.2.0/woff/FiraCode-Bold.woff") format("woff");
-        font-style: bold;
-        font-weight: 700;
-    }
+
+
 
     .terminal-2373185980-matrix {
         font-family: Fira Code, monospace;
@@ -154,9 +140,9 @@
             <circle cx="22" cy="0" r="7" fill="#febc2e"/>
             <circle cx="44" cy="0" r="7" fill="#28c840"/>
             </g>
-        
+
     <g transform="translate(9, 41)" clip-path="url(#terminal-2373185980-clip-terminal)">
-    
+
     <g class="terminal-2373185980-matrix">
     <text class="terminal-2373185980-r1" x="0" y="20" textLength="756.4" clip-path="url(#terminal-2373185980-line-0)">DEMO:&#160;explicit&#160;local&#160;mutation&#160;authorization;&#160;no&#160;live&#160;resources</text><text class="terminal-2373185980-r1" x="1464" y="20" textLength="12.2" clip-path="url(#terminal-2373185980-line-0)">
 </text><text class="terminal-2373185980-r1" x="0" y="44.4" textLength="817.4" clip-path="url(#terminal-2373185980-line-1)">┏━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━━┳━━━━━━━━┓</text><text class="terminal-2373185980-r1" x="1464" y="44.4" textLength="12.2" clip-path="url(#terminal-2373185980-line-1)">

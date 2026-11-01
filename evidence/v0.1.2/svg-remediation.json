@@ -1,0 +1,14 @@
+[
+  {
+    "path": "evidence/demo/terminal.svg",
+    "original_sha256": "1add805df47e7897f96454a70cefecadc7d36c722d029cf8e6ae52c165a2819a",
+    "sanitized_sha256": "bd1bb378dab5b169f58771c23f1c51797a92d42f57d3b245a6f18a11250a9e14",
+    "change": "Removed two CSS font-face blocks containing four CDN font URLs; recorded terminal content unchanged. Empty indentation lines normalized."
+  },
+  {
+    "path": "evidence/v0.1.1/demo/terminal.svg",
+    "original_sha256": "652d947d99a1dae75fae0dfd7770827a8ef37e283dceb6f25b9e7d6476b7c72e",
+    "sanitized_sha256": "449f3fd88bce5685f4b9bfec971d6ce37d749da26fa6350621aff56df811d562",
+    "change": "Removed two CSS font-face blocks containing four CDN font URLs; recorded terminal content unchanged. Empty indentation lines normalized."
+  }
+]

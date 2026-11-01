@@ -18,3 +18,4 @@ demo-output/
 !requirements.lock
 !evidence/coverage.xml
 !evidence/v0.1.1/coverage.xml
+!evidence/v0.1.2/coverage.xml

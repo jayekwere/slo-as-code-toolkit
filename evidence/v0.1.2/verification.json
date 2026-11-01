@@ -1,0 +1,33 @@
+{
+  "version": "0.1.2",
+  "review_date": "2026-11-01",
+  "baseline_commit": "432240cb5553bb7c1597f14e60b66f69cc7f87af",
+  "remaining_review_complete": true,
+  "scope": [
+    "uv.lock",
+    "requirements.lock",
+    "all 24 existing tracked evidence files",
+    "all assets in releases v0.1.0 and v0.1.1",
+    "all wheel and source archive members in those releases"
+  ],
+  "registry_packages_verified": 59,
+  "distribution_records_verified_against_pypi_metadata": 796,
+  "locked_versions_advisory_checked": 59,
+  "known_vulnerabilities": 0,
+  "baseline_evidence_files_reviewed": 24,
+  "published_release_assets_hash_verified": 16,
+  "archive_members_verified": 177,
+  "external_svg_font_references_before": 8,
+  "external_svg_font_references_after": 0,
+  "local_tests_passed": 106,
+  "local_statements": 654,
+  "local_statements_covered": 623,
+  "local_coverage_percent": 95.26,
+  "third_party_source_code_fully_audited": false,
+  "live_datadog_verified": false,
+  "historical_release_assets_modified": false,
+  "reproducible_wheel_and_sdist": true,
+  "container_demo_network_disabled_read_only": true,
+  "secret_scan": "no leaks found",
+  "self_contained_svg_render_reviewed": true
+}

@@ -1,0 +1,486 @@
+{
+  "lock_sha256": "382d596351918be0db9408446c4b206ca77f128361ea914849e1eb8894403e37",
+  "packages": [
+    {
+      "name": "annotated-doc",
+      "version": "0.0.5",
+      "metadata_url": "https://pypi.org/pypi/annotated-doc/0.0.5/json",
+      "metadata_sha256": "1aab691a5f37dd292e6d93ab53f7da5d839f56ba605345f017022ec75eb643af",
+      "locked_artifacts_verified": 2,
+      "status": "passed"
+    },
+    {
+      "name": "annotated-types",
+      "version": "0.8.0",
+      "metadata_url": "https://pypi.org/pypi/annotated-types/0.8.0/json",
+      "metadata_sha256": "a6e8e5b10c8fd2f596bba53e015cd37f6279fb5cec26ce0c5e9968625be4fefa",
+      "locked_artifacts_verified": 2,
+      "status": "passed"
+    },
+    {
+      "name": "anyio",
+      "version": "4.15.1",
+      "metadata_url": "https://pypi.org/pypi/anyio/4.15.1/json",
+      "metadata_sha256": "16b64a4ca0f1779bc3faf59f27685c728d0ac3085ea7585f3f40e11c265b8d70",
+      "locked_artifacts_verified": 2,
+      "status": "passed"
+    },
+    {
+      "name": "ast-serialize",
+      "version": "0.13.1",
+      "metadata_url": "https://pypi.org/pypi/ast-serialize/0.13.1/json",
+      "metadata_sha256": "9b0729d3fb981e4e2b4bb8c95faddafb64aac14fa31568f1b7c373c9a681cc34",
+      "locked_artifacts_verified": 57,
+      "status": "passed"
+    },
+    {
+      "name": "boolean-py",
+      "version": "5.0",
+      "metadata_url": "https://pypi.org/pypi/boolean-py/5.0/json",
+      "metadata_sha256": "592fa1ea048b6e5d71c019df7692387b0bb57c7504676c2809b85ab3dafc1b62",
+      "locked_artifacts_verified": 2,
+      "status": "passed"
+    },
+    {
+      "name": "build",
+      "version": "1.6.1",
+      "metadata_url": "https://pypi.org/pypi/build/1.6.1/json",
+      "metadata_sha256": "064e9dcb80e948b5de7a841c3fd9b5644a980eb27bb644fb7f562b7d773b157b",
+      "locked_artifacts_verified": 2,
+      "status": "passed"
+    },
+    {
+      "name": "cachecontrol",
+      "version": "0.14.4",
+      "metadata_url": "https://pypi.org/pypi/cachecontrol/0.14.4/json",
+      "metadata_sha256": "03b391e940e2492a8b3e3736975ad77fea36e4df02e22786e8756d572d398a35",
+      "locked_artifacts_verified": 2,
+      "status": "passed"
+    },
+    {
+      "name": "certifi",
+      "version": "2026.10.23",
+      "metadata_url": "https://pypi.org/pypi/certifi/2026.10.23/json",
+      "metadata_sha256": "546ce90e02c152f5ff565baca6bc2a8f43c355855f637756f49a0143e312bdb2",
+      "locked_artifacts_verified": 2,
+      "status": "passed"
+    },
+    {
+      "name": "charset-normalizer",
+      "version": "3.5.2",
+      "metadata_url": "https://pypi.org/pypi/charset-normalizer/3.5.2/json",
+      "metadata_sha256": "9fda300857ae6a0486b4cd2d2fec7817ed2d45657249a6dfc0c2bbd1a44267b6",
+      "locked_artifacts_verified": 124,
+      "status": "passed"
+    },
+    {
+      "name": "colorama",
+      "version": "0.4.6",
+      "metadata_url": "https://pypi.org/pypi/colorama/0.4.6/json",
+      "metadata_sha256": "43fb351344384a44c2b7d7fff1c63496b89ac830aea714301525c1f3718addd1",
+      "locked_artifacts_verified": 2,
+      "status": "passed"
+    },
+    {
+      "name": "coverage",
+      "version": "7.17.0",
+      "metadata_url": "https://pypi.org/pypi/coverage/7.17.0/json",
+      "metadata_sha256": "e5575b0b3abc69f9ebb2d64513f69676c8212f9da0672907189791344357cf5b",
+      "locked_artifacts_verified": 104,
+      "status": "passed"
+    },
+    {
+      "name": "cyclonedx-python-lib",
+      "version": "11.12.0",
+      "metadata_url": "https://pypi.org/pypi/cyclonedx-python-lib/11.12.0/json",
+      "metadata_sha256": "83da238d990ceb1570d5c55298f569102c6627f306302855641c1202f96f7f0c",
+      "locked_artifacts_verified": 2,
+      "status": "passed"
+    },
+    {
+      "name": "defusedxml",
+      "version": "0.7.1",
+      "metadata_url": "https://pypi.org/pypi/defusedxml/0.7.1/json",
+      "metadata_sha256": "f015c37fa0b87a1d7fad57bea96c5c34856df2cbb29626004dee2122d510136a",
+      "locked_artifacts_verified": 2,
+      "status": "passed"
+    },
+    {
+      "name": "filelock",
+      "version": "4.2.6",
+      "metadata_url": "https://pypi.org/pypi/filelock/4.2.6/json",
+      "metadata_sha256": "b41fd205f9a016c5da0e3f3576106bbc0077fd0027702977549e0a7bf9d99922",
+      "locked_artifacts_verified": 2,
+      "status": "passed"
+    },
+    {
+      "name": "h11",
+      "version": "0.16.0",
+      "metadata_url": "https://pypi.org/pypi/h11/0.16.0/json",
+      "metadata_sha256": "97f4efb9cc00826f0408076983adc1a1e48e8f2cabf403aaf250f724e081440d",
+      "locked_artifacts_verified": 2,
+      "status": "passed"
+    },
+    {
+      "name": "hatchling",
+      "version": "1.33.0",
+      "metadata_url": "https://pypi.org/pypi/hatchling/1.33.0/json",
+      "metadata_sha256": "aba0f7c78f0d63e00c028731c72c2316e9a2b9a9705f6a103d8520d5fc32c473",
+      "locked_artifacts_verified": 2,
+      "status": "passed"
+    },
+    {
+      "name": "httpcore",
+      "version": "1.0.9",
+      "metadata_url": "https://pypi.org/pypi/httpcore/1.0.9/json",
+      "metadata_sha256": "e26eca5c3d288fe9e6446af9bcbca1038ba688629d5c8a2886c47d74718d87a2",
+      "locked_artifacts_verified": 2,
+      "status": "passed"
+    },
+    {
+      "name": "httpx",
+      "version": "0.28.1",
+      "metadata_url": "https://pypi.org/pypi/httpx/0.28.1/json",
+      "metadata_sha256": "293bfab7bf587fcd0825f1bd8eed8e6303285ba14801b15659853827cbe30796",
+      "locked_artifacts_verified": 2,
+      "status": "passed"
+    },
+    {
+      "name": "idna",
+      "version": "3.20",
+      "metadata_url": "https://pypi.org/pypi/idna/3.20/json",
+      "metadata_sha256": "e7cbd26e23ce60f6cb3a151d2adf3b1b087bb8f10ac2d9d6db70fdccbf3bb041",
+      "locked_artifacts_verified": 2,
+      "status": "passed"
+    },
+    {
+      "name": "iniconfig",
+      "version": "2.3.1",
+      "metadata_url": "https://pypi.org/pypi/iniconfig/2.3.1/json",
+      "metadata_sha256": "ab4d5df71d2a4f01a0eb418d7809bb22dca3293991a369309f068c07c1471557",
+      "locked_artifacts_verified": 2,
+      "status": "passed"
+    },
+    {
+      "name": "librt",
+      "version": "0.16.0",
+      "metadata_url": "https://pypi.org/pypi/librt/0.16.0/json",
+      "metadata_sha256": "15903fc6fea8431c709b032d2dc99d27da1ab61f2f06998a6bb73b07d9e71ef0",
+      "locked_artifacts_verified": 94,
+      "status": "passed"
+    },
+    {
+      "name": "license-expression",
+      "version": "30.4.4",
+      "metadata_url": "https://pypi.org/pypi/license-expression/30.4.4/json",
+      "metadata_sha256": "b8f8e4e7ff646d265627f7e8c120f0d5e2e51a1e0fe895012336b6458f4a8777",
+      "locked_artifacts_verified": 2,
+      "status": "passed"
+    },
+    {
+      "name": "markdown-it-py",
+      "version": "4.2.0",
+      "metadata_url": "https://pypi.org/pypi/markdown-it-py/4.2.0/json",
+      "metadata_sha256": "62affba459c80b1279b5759735f7da3e9c7d24966086ff81ec0303c94512b966",
+      "locked_artifacts_verified": 2,
+      "status": "passed"
+    },
+    {
+      "name": "mdurl",
+      "version": "0.1.2",
+      "metadata_url": "https://pypi.org/pypi/mdurl/0.1.2/json",
+      "metadata_sha256": "c7baac0b363d92cf55f1f3a313f4bb0564bff27343e6a0a4e9d7ff03afc8a6c7",
+      "locked_artifacts_verified": 2,
+      "status": "passed"
+    },
+    {
+      "name": "msgpack",
+      "version": "1.2.4",
+      "metadata_url": "https://pypi.org/pypi/msgpack/1.2.4/json",
+      "metadata_sha256": "6fb5984e62a21072b8f9a5a5bd2b9d6add981390b5dbed608d840d613f46e348",
+      "locked_artifacts_verified": 70,
+      "status": "passed"
+    },
+    {
+      "name": "mypy",
+      "version": "2.4.1",
+      "metadata_url": "https://pypi.org/pypi/mypy/2.4.1/json",
+      "metadata_sha256": "7a117664785380511fe56aa00829f566616544933e5ab9ea34b4d4a7ffd5da41",
+      "locked_artifacts_verified": 40,
+      "status": "passed"
+    },
+    {
+      "name": "mypy-extensions",
+      "version": "1.1.0",
+      "metadata_url": "https://pypi.org/pypi/mypy-extensions/1.1.0/json",
+      "metadata_sha256": "1c470d3b03e21974b5ea09a572478f10864174511c3a46864b759409451d3ba8",
+      "locked_artifacts_verified": 2,
+      "status": "passed"
+    },
+    {
+      "name": "packageurl-python",
+      "version": "0.17.6",
+      "metadata_url": "https://pypi.org/pypi/packageurl-python/0.17.6/json",
+      "metadata_sha256": "67e19563deb4ead684c458f8870333d842c5c3840e27cfec9bead1c78cd97f4f",
+      "locked_artifacts_verified": 2,
+      "status": "passed"
+    },
+    {
+      "name": "packaging",
+      "version": "26.3",
+      "metadata_url": "https://pypi.org/pypi/packaging/26.3/json",
+      "metadata_sha256": "4f190d2f0b312b3086058cee64ab4333bf3ce67fb78b4c2bdb43899049b29f4d",
+      "locked_artifacts_verified": 2,
+      "status": "passed"
+    },
+    {
+      "name": "pathspec",
+      "version": "1.1.1",
+      "metadata_url": "https://pypi.org/pypi/pathspec/1.1.1/json",
+      "metadata_sha256": "24f66829a7f40485bdccfcf32294218b0f4260b289ee4806ab644feb6c194766",
+      "locked_artifacts_verified": 2,
+      "status": "passed"
+    },
+    {
+      "name": "pip",
+      "version": "26.2.2",
+      "metadata_url": "https://pypi.org/pypi/pip/26.2.2/json",
+      "metadata_sha256": "ebd1e77f0bdb480aa8cf26c605ad6856753becb015a3d2006228cadb40465931",
+      "locked_artifacts_verified": 2,
+      "status": "passed"
+    },
+    {
+      "name": "pip-api",
+      "version": "0.0.35",
+      "metadata_url": "https://pypi.org/pypi/pip-api/0.0.35/json",
+      "metadata_sha256": "034f9258ae563cf3b74a92815a908b4367bc27afc0fca3e94d2c2de532629000",
+      "locked_artifacts_verified": 2,
+      "status": "passed"
+    },
+    {
+      "name": "pip-audit",
+      "version": "2.10.1",
+      "metadata_url": "https://pypi.org/pypi/pip-audit/2.10.1/json",
+      "metadata_sha256": "0375a398da843b62fd47ea4926a6220028fad3af7f3d83ed91251b86a1a34309",
+      "locked_artifacts_verified": 2,
+      "status": "passed"
+    },
+    {
+      "name": "pip-requirements-parser",
+      "version": "32.0.1",
+      "metadata_url": "https://pypi.org/pypi/pip-requirements-parser/32.0.1/json",
+      "metadata_sha256": "9feedb8034ac2e03f60dca458a9568bb19c56f29ca9b91cb929305feb48f0e3b",
+      "locked_artifacts_verified": 2,
+      "status": "passed"
+    },
+    {
+      "name": "platformdirs",
+      "version": "4.14.2",
+      "metadata_url": "https://pypi.org/pypi/platformdirs/4.14.2/json",
+      "metadata_sha256": "c92d033f503a88b2519a586fec889beaef8f3430632c7f9ec5389916809eb897",
+      "locked_artifacts_verified": 2,
+      "status": "passed"
+    },
+    {
+      "name": "pluggy",
+      "version": "1.7.0",
+      "metadata_url": "https://pypi.org/pypi/pluggy/1.7.0/json",
+      "metadata_sha256": "9e8f441bba8382eabf6febf386a5b9610cfe0c16b60b96e7b4b1831bd6d96361",
+      "locked_artifacts_verified": 2,
+      "status": "passed"
+    },
+    {
+      "name": "py-serializable",
+      "version": "2.1.0",
+      "metadata_url": "https://pypi.org/pypi/py-serializable/2.1.0/json",
+      "metadata_sha256": "e1f417456edabbaeff4b7d40d4e1e05017010843f66092bc064bcc301ffe1f63",
+      "locked_artifacts_verified": 2,
+      "status": "passed"
+    },
+    {
+      "name": "pydantic",
+      "version": "2.14.2",
+      "metadata_url": "https://pypi.org/pypi/pydantic/2.14.2/json",
+      "metadata_sha256": "752f55c1d193bf51db156f3a72040605b80f6edfef7c530a0fa45382ff3e6cca",
+      "locked_artifacts_verified": 2,
+      "status": "passed"
+    },
+    {
+      "name": "pydantic-core",
+      "version": "2.50.2",
+      "metadata_url": "https://pypi.org/pypi/pydantic-core/2.50.2/json",
+      "metadata_sha256": "47d8d66946499711fad9e5610aa1ee7651a630185f395659483cc03ba7624a5b",
+      "locked_artifacts_verified": 96,
+      "status": "passed"
+    },
+    {
+      "name": "pygments",
+      "version": "2.21.0",
+      "metadata_url": "https://pypi.org/pypi/pygments/2.21.0/json",
+      "metadata_sha256": "330104a10adc8a587e3f98f4e207557125ca0c1d489e129334da5acb2b813a03",
+      "locked_artifacts_verified": 2,
+      "status": "passed"
+    },
+    {
+      "name": "pyparsing",
+      "version": "3.3.3",
+      "metadata_url": "https://pypi.org/pypi/pyparsing/3.3.3/json",
+      "metadata_sha256": "b851d5414eca50b38263f56c00a1fbec80383a26a3ad8e41a204b72cdeee5751",
+      "locked_artifacts_verified": 2,
+      "status": "passed"
+    },
+    {
+      "name": "pyproject-hooks",
+      "version": "1.3.3",
+      "metadata_url": "https://pypi.org/pypi/pyproject-hooks/1.3.3/json",
+      "metadata_sha256": "ef47170935f8a098c070a3cd65d637d5bbf646158d9559eebac9c465b83d0401",
+      "locked_artifacts_verified": 2,
+      "status": "passed"
+    },
+    {
+      "name": "pytest",
+      "version": "9.2.0",
+      "metadata_url": "https://pypi.org/pypi/pytest/9.2.0/json",
+      "metadata_sha256": "9bfb2ab87f53ac4e1770fb14b2431e5a4a1db5d8bd39189f441b92d8b59e94cc",
+      "locked_artifacts_verified": 2,
+      "status": "passed"
+    },
+    {
+      "name": "pytest-cov",
+      "version": "7.1.0",
+      "metadata_url": "https://pypi.org/pypi/pytest-cov/7.1.0/json",
+      "metadata_sha256": "2f14c20e86c2a4aece613433b31653ba37f4dd9dce122c9a66ba13df4d1adbaa",
+      "locked_artifacts_verified": 2,
+      "status": "passed"
+    },
+    {
+      "name": "pyyaml",
+      "version": "6.0.3",
+      "metadata_url": "https://pypi.org/pypi/pyyaml/6.0.3/json",
+      "metadata_sha256": "c3f35597bc2f08cc990c2a5fe57bef6687b3a3d7c61d8b0ba4cc067777eb1def",
+      "locked_artifacts_verified": 39,
+      "status": "passed"
+    },
+    {
+      "name": "requests",
+      "version": "2.34.2",
+      "metadata_url": "https://pypi.org/pypi/requests/2.34.2/json",
+      "metadata_sha256": "8622e50ffd295ed759ec793f2a009172a4ed0204bbc5e948de23111bc3d2aeae",
+      "locked_artifacts_verified": 2,
+      "status": "passed"
+    },
+    {
+      "name": "rich",
+      "version": "15.0.0",
+      "metadata_url": "https://pypi.org/pypi/rich/15.0.0/json",
+      "metadata_sha256": "455015cb0b237a24819d91236152ad0e71b2be39a83cbe6afa0e29ea8aafa550",
+      "locked_artifacts_verified": 2,
+      "status": "passed"
+    },
+    {
+      "name": "ruff",
+      "version": "0.17.3",
+      "metadata_url": "https://pypi.org/pypi/ruff/0.17.3/json",
+      "metadata_sha256": "8c7c0d9a4defa3f62bdfeb308d25335720eed0c0960bdc9c64c2b9247b9a7a81",
+      "locked_artifacts_verified": 18,
+      "status": "passed"
+    },
+    {
+      "name": "shellingham",
+      "version": "1.5.4",
+      "metadata_url": "https://pypi.org/pypi/shellingham/1.5.4/json",
+      "metadata_sha256": "9381443cd6295d50fc7f7bd34a457243b0f3a54732cde45b0fc2d0994b61f3af",
+      "locked_artifacts_verified": 2,
+      "status": "passed"
+    },
+    {
+      "name": "sortedcontainers",
+      "version": "2.4.0",
+      "metadata_url": "https://pypi.org/pypi/sortedcontainers/2.4.0/json",
+      "metadata_sha256": "4e0cd7bf62c28a94d9236338cdd4d918aef53a344c6765756ebfe054de14930b",
+      "locked_artifacts_verified": 2,
+      "status": "passed"
+    },
+    {
+      "name": "tomli",
+      "version": "2.5.0",
+      "metadata_url": "https://pypi.org/pypi/tomli/2.5.0/json",
+      "metadata_sha256": "db3dcc9ba38b7c7fe8021b68b66112b8df90840ca826acfa55b3698f76992eb1",
+      "locked_artifacts_verified": 56,
+      "status": "passed"
+    },
+    {
+      "name": "tomli-w",
+      "version": "1.2.0",
+      "metadata_url": "https://pypi.org/pypi/tomli-w/1.2.0/json",
+      "metadata_sha256": "073cbf95dd8b295cdfb5bd724540b50c04234db7ec20830c7011c7172905e411",
+      "locked_artifacts_verified": 2,
+      "status": "passed"
+    },
+    {
+      "name": "tomlkit",
+      "version": "0.15.2",
+      "metadata_url": "https://pypi.org/pypi/tomlkit/0.15.2/json",
+      "metadata_sha256": "805c82d5063081892eba677328a263b9d6bad525ce704fae69cd3aaa8ddc7655",
+      "locked_artifacts_verified": 2,
+      "status": "passed"
+    },
+    {
+      "name": "trove-classifiers",
+      "version": "2026.9.21.13",
+      "metadata_url": "https://pypi.org/pypi/trove-classifiers/2026.9.21.13/json",
+      "metadata_sha256": "6f743386053525d93ce712c8f909a5a5a257fe5a71a588c1d4a676b1b70cc45e",
+      "locked_artifacts_verified": 2,
+      "status": "passed"
+    },
+    {
+      "name": "typer",
+      "version": "0.27.3",
+      "metadata_url": "https://pypi.org/pypi/typer/0.27.3/json",
+      "metadata_sha256": "61552fe268e5dd109efec5a3542ed135afaf4094fae84d648a13c6e18004ad62",
+      "locked_artifacts_verified": 2,
+      "status": "passed"
+    },
+    {
+      "name": "types-pyyaml",
+      "version": "6.0.12.20261030",
+      "metadata_url": "https://pypi.org/pypi/types-pyyaml/6.0.12.20261030/json",
+      "metadata_sha256": "3bff196cd9656016f6cd78fcc8c9702f04ac54201609f9fcb98ddf692b9bfa90",
+      "locked_artifacts_verified": 2,
+      "status": "passed"
+    },
+    {
+      "name": "typing-extensions",
+      "version": "4.16.0",
+      "metadata_url": "https://pypi.org/pypi/typing-extensions/4.16.0/json",
+      "metadata_sha256": "2140da00d62dde967f52d0be0ae28444f1d6a3fe603f52c83c23988c32122d5a",
+      "locked_artifacts_verified": 2,
+      "status": "passed"
+    },
+    {
+      "name": "typing-inspection",
+      "version": "0.4.4",
+      "metadata_url": "https://pypi.org/pypi/typing-inspection/0.4.4/json",
+      "metadata_sha256": "0605416f2f37f2df04e45360cf5ce4ca5eeca6d414bb6ddb1ec5a9893c62ac30",
+      "locked_artifacts_verified": 2,
+      "status": "passed"
+    },
+    {
+      "name": "urllib3",
+      "version": "2.8.0",
+      "metadata_url": "https://pypi.org/pypi/urllib3/2.8.0/json",
+      "metadata_sha256": "5315e7401db3cacccd0c2ce5daf81f752a9cc3614b18c37f2b79930b7159ce2f",
+      "locked_artifacts_verified": 2,
+      "status": "passed"
+    }
+  ],
+  "registry_packages_verified": 59,
+  "distribution_records_verified": 796,
+  "source_policy": "PyPI registry only; files.pythonhosted.org HTTPS distribution URLs; sole editable source is current project",
+  "metadata_only": true,
+  "limitations": "Published metadata agreement verifies recorded provenance and integrity fields, not absence of malicious code in upstream packages.",
+  "reviewed_baseline_commit": "432240cb5553bb7c1597f14e60b66f69cc7f87af",
+  "updated_lock_sha256": "8432e89d709dfa9b8c9b2d562ad5a600efaada05ce0ea16581b30e74313fc99d",
+  "third_party_records_unchanged_in_patch": true,
+  "runtime_export_matches_lock": true
+}
