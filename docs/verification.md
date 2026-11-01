@@ -10,6 +10,10 @@ The initial validation uses fictional definitions and a local Datadog contract s
 - The pinned Python 3.12 Docker image built successfully. Its complete demo passed as UID 10001 with networking disabled, a read-only root filesystem, and a bounded temporary filesystem.
 - Wheel and sdist built twice with identical hashes. Exact release checksums are attached to the GitHub release.
 
+## Hosted CI evidence
+
+[CI run 41269015209](https://github.com/jayekwere/slo-as-code-toolkit/actions/runs/41269015209) passed on implementation commit [`382b5f3be9966d45e03fa18239c541bab0850e21`](https://github.com/jayekwere/slo-as-code-toolkit/commit/382b5f3be9966d45e03fa18239c541bab0850e21). All five jobs succeeded: Python 3.12, 3.13, Python 3.14, dependencies/secrets, and reproducible packages with an installed-wheel smoke test. Each matrix job ran all 88 tests. The run provides downloadable coverage, JUnit, demo, audit, secret-scan and distribution artifacts. Release notes identify the final documentation commit and its corresponding CI run.
+
 ## Reproduce
 
 ```sh

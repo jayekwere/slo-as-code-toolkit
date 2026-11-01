@@ -16,3 +16,4 @@ demo-output/
 .env
 !uv.lock
 !requirements.lock
+!evidence/coverage.xml
