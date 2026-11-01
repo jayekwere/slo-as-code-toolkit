@@ -224,7 +224,11 @@ def export(
 @app.command()
 def demo(output_dir: Path = Path("demo-output")) -> None:
     """Run all three fictional services against a fresh local contract simulator."""
-    output_dir.mkdir(parents=True, exist_ok=False)
+    try:
+        output_dir.mkdir(parents=True, exist_ok=False)
+    except OSError:
+        console.print("A new writable demo output directory is required.")
+        raise typer.Exit(2) from None
     paths = [
         Path(__file__).parent / "examples" / f"{name}.yaml"
         for name in ("public-api", "auth-api", "background-processing")

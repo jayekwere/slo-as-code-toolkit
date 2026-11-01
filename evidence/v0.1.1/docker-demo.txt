@@ -1,0 +1,36 @@
+DEMO: explicit local mutation authorization; no live resources
+┏━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━━┳━━━━━━━━┓
+┃ Service               ┃ SLI          ┃ Target ┃ Window ┃ Alerts ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━━╇━━━━━━━━┩
+│ public-api            │ availability │ 99.9%  │ 30d    │ 2      │
+│ auth-api              │ success      │ 99.95% │ 30d    │ 2      │
+│ background-processing │ success      │ 99.5%  │ 30d    │ 2      │
+└───────────────────────┴──────────────┴────────┴────────┴────────┘
+SYNTHETIC: healthy 100% success; degraded 90% success in both windows
+┏━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┓
+┃ Service        ┃ Budget / 10k ┃ Healthy burn ┃ Degraded burn ┃ Alert state   ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━┩
+│ public-api     │ 10.0         │ 0.0          │ 100.0         │ ALERT / ALERT │
+│ auth-api       │ 5.0          │ 0.0          │ 200.0         │ ALERT / ALERT │
+│ background-pr… │ 50.0         │ 0.0          │ 20.0          │ ALERT / ALERT │
+└────────────────┴──────────────┴──────────────┴───────────────┴───────────────┘
+Burn preview: each block is 10× burn, capped at 30 blocks
+public-api             ██████████ 100×
+auth-api               ████████████████████ 200×
+background-processing  ██ 20×
+┏━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━━━━┓
+┃ Resource ┃ Identity                   ┃ Before ┃ Verified ┃
+┡━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━━━━┩
+│ slo      │ public-api                 │ create │ noop     │
+│ monitor  │ public-api:fast            │ create │ noop     │
+│ monitor  │ public-api:slow            │ create │ noop     │
+│ slo      │ auth-api                   │ create │ noop     │
+│ monitor  │ auth-api:fast              │ create │ noop     │
+│ monitor  │ auth-api:slow              │ create │ noop     │
+│ slo      │ background-processing      │ create │ noop     │
+│ monitor  │ background-processing:fast │ create │ noop     │
+│ monitor  │ background-processing:slow │ create │ noop     │
+└──────────┴────────────────────────────┴────────┴──────────┘
+Created /tmp/demo/report.html
+Created /tmp/demo/report.md
+Verified: 3 SLOs, 6 monitors, zero drift

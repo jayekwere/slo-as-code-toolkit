@@ -8,9 +8,13 @@
 4. Copy `fingerprint` from the plan. Run `sloctl apply FILE... --expected HASH`; confirm the displayed actions. Use the same state/site/live settings as the reviewed plan. Unattended approved jobs may pass `--yes`.
 5. Require successful verification and `sloctl drift FILE...` exit 0. Retain audit records and commit history.
 
+The audit destination is opened before the first mutation and held open through apply. An inaccessible destination prevents any write. Each recorded successful action is flushed before proceeding. Later disk or I/O failures can still occur after a remote write.
+
 The audit is append-only JSON Lines containing action, resource kind, stable key, and remote ID. It omits credentials and API response bodies. Each successfully returned write is recorded immediately. An audit-write failure stops further work but cannot roll back a remote write. A transport error may mean a write succeeded without an audit entry. Inspect remote state and re-plan.
 
 Stable ownership requires both `managed-by:sloctl` and `sloctl-id:NAME` (monitors append `:ALERT`). A matching identity without ownership, or duplicate matching identities, blocks apply. Resources with no matching identity are left alone. Never manually copy identity tags onto unrelated resources.
+
+Approval and pre-write comparisons bind remote resource IDs plus fields managed by this toolkit. Changing monitor status/timestamps and unrelated server metadata do not invalidate a plan. Real managed configuration changes still fail closed. After upgrading to 0.1.1, generate a new plan because the fingerprint format changed.
 
 A fresh read is performed after approval and before each write. A local exclusive lock prevents overlapping apply processes sharing the same state path. This is not a distributed lock and the APIs do not expose atomic conditional updates. Serialize live writers with an external deployment lock; prohibit interactive edits during a live apply. A change between the final read and write can still race. Post-apply verification reports remaining drift.
 
@@ -34,7 +38,7 @@ sloctl serve --state sandbox.db --port 8765
 curl http://127.0.0.1:8765/api/v1/slo
 ```
 
-The facade is for local contract development, not production hosting. It has no authentication and trusts local users. Do not forward its port. It accepts bounded JSON requests and rejects unsupported routes. The CLI normally uses its in-process transport; point `--state sandbox.db` at the same file to inspect the standalone server state. Do not run direct server writes concurrently with apply.
+The facade is for local contract development, not production hosting. It has no authentication and trusts local users. It rejects Origin-bearing requests and unexpected Host headers, and POST/PUT require Content-Type application/json. Do not forward its port. It accepts bounded JSON requests and rejects unsupported routes. The CLI normally uses its in-process transport; point `--state sandbox.db` at the same file to inspect the standalone server state. Do not run direct server writes concurrently with apply.
 
 Reports use exclusive file creation to avoid accidental overwrite. The demo also requires a new output directory. SQLite, audit, and lock files are local operational artifacts and are ignored by Git. To reset a fictional sandbox, stop its server and deliberately remove its database after retaining evidence.
 

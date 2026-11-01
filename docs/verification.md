@@ -2,7 +2,13 @@
 
 The initial validation uses fictional definitions and a local Datadog contract simulator. No live Datadog credentials were provided, no live resources were created, and successful live integration is not claimed.
 
-## Measured local results
+## Patch release 0.1.1
+
+The final review and patch are described in [review-0.1.1.md](review-0.1.1.md). The patch adds 16 behavioral regression cases, for **104 passing tests** on local Python 3.14.6 and **95.25% statement coverage** (653 statements, 622 covered). [JUnit](../evidence/v0.1.1/junit.xml) and [coverage XML](../evidence/v0.1.1/coverage.xml) retain the measured results. Hosted results and exact release checksums are linked from the v0.1.1 GitHub release after CI passes.
+
+The independent static security review covered runtime modules, tests, examples, CI and supporting documentation. It reported no confirmed vulnerabilities under the documented threat model. Coverage was explicitly partial for generated evidence and dependency lock contents, which were selectively inspected. That result is not a formal security assurance or live API verification.
+
+## Original 0.1.0 measured local results
 
 - Python 3.14.6: 88 tests passed, 95.36% statement coverage (coverage gate: 85%).
 - Ruff lint and formatting passed; strict Mypy passed for all 11 source modules.

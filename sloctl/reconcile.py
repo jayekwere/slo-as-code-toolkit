@@ -4,7 +4,7 @@ import hashlib
 import json
 import os
 from collections.abc import Iterator
-from contextlib import contextmanager
+from contextlib import contextmanager, nullcontext
 from pathlib import Path
 from typing import Any
 
@@ -20,6 +20,8 @@ def owned(resources: list[dict[str, Any]], key: str) -> dict[str, Any] | None:
     matches = [r for r in resources if f"sloctl-id:{key}" in r["tags"]]
     if len(matches) > 1 or (matches and "managed-by:sloctl" not in matches[0]["tags"]):
         raise Conflict("duplicate identity or ownership collision")
+    if matches and len([tag for tag in matches[0]["tags"] if tag.startswith("sloctl-id:")]) != 1:
+        raise Conflict("resource has ambiguous identity tags")
     return matches[0] if matches else None
 
 
@@ -70,8 +72,14 @@ def plan(client: Client, services: list[Service]) -> list[dict[str, Any]]:
     return changes
 
 
+def snapshot(remote: dict[str, Any] | None, wanted: dict[str, Any]) -> dict[str, Any] | None:
+    """Only identity and fields managed by this tool bind approval and preflight."""
+    return {"id": remote["id"], **comparable(remote, wanted)} if remote is not None else None
+
+
 def fingerprint(changes: list[dict[str, Any]]) -> str:
-    return hashlib.sha256(json.dumps(changes, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
+    stable = [{**c, "before": snapshot(c["before"], c["desired"])} for c in changes]
+    return hashlib.sha256(json.dumps(stable, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
 
 
 @contextmanager
@@ -93,26 +101,29 @@ def apply(client: Client, services: list[Service], expected: str, audit: Path) -
         raise Conflict("remote state changed since approval; re-plan")
     events = []
     ids: dict[str, str | int] = {}
-    for c in changes:
-        # Recheck the exact resource before each write; Datadog lacks atomic CAS.
-        current = owned(client.list(c["kind"]), c["key"])
-        if current != c["before"]:
-            raise Conflict("concurrent remote change detected")
-        payload = json.loads(json.dumps(c["desired"]))
-        if c["kind"] == "monitor":
-            for name, rid in ids.items():
-                payload["query"] = payload["query"].replace(f"REF:{name}", str(rid))
-        if c["action"] == "noop":
-            assert current is not None
-            saved = current
-        else:
-            saved = client.save(c["kind"], payload, c["id"])
-            event = {"kind": c["kind"], "key": c["key"], "action": c["action"], "id": saved["id"]}
-            with audit.open("a") as stream:
-                stream.write(json.dumps(event) + "\n")
-            events.append(event)
-        if c["kind"] == "slo":
-            ids[c["key"]] = saved["id"]
+    pending = any(c["action"] != "noop" for c in changes)
+    with audit.open("a") if pending else nullcontext(None) as audit_stream:
+        for c in changes:
+            # Recheck the exact resource before each write; Datadog lacks atomic CAS.
+            current = owned(client.list(c["kind"]), c["key"])
+            if snapshot(current, c["desired"]) != snapshot(c["before"], c["desired"]):
+                raise Conflict("concurrent remote change detected")
+            payload = json.loads(json.dumps(c["desired"]))
+            if c["kind"] == "monitor":
+                for name, rid in ids.items():
+                    payload["query"] = payload["query"].replace(f'"REF:{name}"', json.dumps(str(rid)))
+            if c["action"] == "noop":
+                assert current is not None
+                saved = current
+            else:
+                saved = client.save(c["kind"], payload, c["id"])
+                event = {"kind": c["kind"], "key": c["key"], "action": c["action"], "id": saved["id"]}
+                assert audit_stream is not None
+                audit_stream.write(json.dumps(event) + "\n")
+                audit_stream.flush()
+                events.append(event)
+            if c["kind"] == "slo":
+                ids[c["key"]] = saved["id"]
     if any(c["action"] != "noop" for c in plan(client, services)):
         raise Conflict("post-apply verification found drift; inspect and re-plan")
     return events

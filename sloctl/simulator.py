@@ -24,21 +24,41 @@ class Simulator:
 
     def handle(self, request: httpx.Request) -> httpx.Response:
         parts = request.url.path.split("/")
-        if len(parts) < 4 or parts[3] not in ("slo", "monitor"):
+        if len(parts) not in (4, 5) or parts[1:3] != ["api", "v1"] or parts[3] not in ("slo", "monitor"):
             return httpx.Response(404, json={"errors": ["not found"]})
         kind = parts[3]
         rid = parts[4] if len(parts) > 4 else None
+        if (request.method == "POST" and rid is not None) or (request.method == "PUT" and rid is None):
+            return httpx.Response(405)
         if request.method == "GET":
+            if rid is not None:
+                row = self.db.execute(
+                    "SELECT payload FROM resources WHERE kind=? AND id=?", (kind, rid)
+                ).fetchone()
+                if row is None:
+                    return httpx.Response(404)
+                item = json.loads(row[0])
+                return httpx.Response(200, json={"data": [item]} if kind == "slo" else item)
+            try:
+                page = (
+                    int(request.url.params.get("offset", "0"))
+                    if kind == "slo"
+                    else int(request.url.params.get("page", "0"))
+                )
+                limit = int(request.url.params.get("limit" if kind == "slo" else "page_size", "1000"))
+                if page < 0 or not 1 <= limit <= 1000:
+                    raise ValueError("invalid pagination")
+            except ValueError:
+                return httpx.Response(400)
+            if kind == "monitor":
+                page *= limit
             records = [
                 json.loads(row[0])
-                for row in self.db.execute("SELECT payload FROM resources WHERE kind=? ORDER BY id", (kind,))
+                for row in self.db.execute(
+                    "SELECT payload FROM resources WHERE kind=? ORDER BY id LIMIT ? OFFSET ?",
+                    (kind, limit, page),
+                )
             ]
-            page = (
-                int(request.url.params.get("offset", "0"))
-                if kind == "slo"
-                else int(request.url.params.get("page", "0")) * 1000
-            )
-            records = records[page : page + 1000]
             return httpx.Response(200, json={"data": records} if kind == "slo" else records)
         if request.method not in ("POST", "PUT"):
             return httpx.Response(405)
@@ -46,7 +66,7 @@ class Simulator:
             return httpx.Response(413)
         try:
             payload = json.loads(request.content)
-        except ValueError:
+        except (ValueError, RecursionError):
             return httpx.Response(400)
         if not isinstance(payload, dict):
             return httpx.Response(400)
@@ -75,7 +95,10 @@ class Simulator:
                 ):
                     raise ValueError("invalid monitor windows")
                 maximum = 1 / (1 - slo["thresholds"][0]["target"] / 100)
-                critical = (resource.options or {}).get("thresholds", {}).get("critical")
+                thresholds = (resource.options or {}).get("thresholds", {})
+                if not isinstance(thresholds, dict):
+                    raise ValueError("invalid monitor thresholds")
+                critical = thresholds.get("critical")
                 if not 0 < float(threshold) <= maximum or critical != float(threshold):
                     raise ValueError("invalid monitor thresholds")
         except ValueError:

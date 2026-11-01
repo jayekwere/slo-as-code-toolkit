@@ -18,7 +18,7 @@ Assets are Datadog credentials, monitoring configuration, service definitions, a
 | Unbounded remote responses | Streamed 4 MB body cap; four read attempts; timeouts; 100-page cap | Per-phase timeouts are not a whole-process deadline |
 | Report script injection | HTML escaping and no executable data templates | Reports disclose ordinary configuration; protect as needed |
 | Dependency or CI compromise | Committed dependency lock; pinned action SHAs; dependency audit; secret scan; minimal workflow permission | Updating pinned sources requires review |
-| Local simulator misuse | Loopback-only optional server, request bounds, SQLite transactions | Unauthenticated local clients can mutate a sandbox; no production deployment |
+| Local simulator misuse | Loopback-only optional server, Host/Origin and JSON content-type checks, request bounds, SQLite transactions | Unauthenticated local clients can mutate a sandbox; no production deployment |
 
 No arbitrary code evaluation, plugin execution, shell interpolation, remote deletion, paid provisioning, or automatic live credential detection exists. Secret scanning and tests reduce risk but are not a claim of formal security assurance.
 

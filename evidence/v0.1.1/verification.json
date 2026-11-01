@@ -1,0 +1,18 @@
+{
+  "version": "0.1.1",
+  "reviewed_baseline": "064174800e16a2d3c5675831d88ab826c4b7f814",
+  "local_python": "3.14.6",
+  "tests_passed": 104,
+  "tests_failed": 0,
+  "statements": 653,
+  "statements_covered": 622,
+  "coverage_percent": 95.25,
+  "strict_mypy": "passed",
+  "ruff_lint_and_format": "passed",
+  "reproducible_wheel_and_sdist": "passed",
+  "container_demo_network_disabled_read_only": "passed",
+  "dependency_audit": "no known vulnerabilities",
+  "secret_scan": "no leaks found",
+  "live_datadog_verification": "not performed; no credentials supplied",
+  "static_security_review_coverage": "runtime, tests, examples, CI, and documentation; dependency locks and generated evidence selectively inspected"
+}

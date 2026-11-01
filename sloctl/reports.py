@@ -9,7 +9,8 @@ from .security import redact
 
 
 def render(data: dict[str, Any], format: str) -> str:
-    text = json.dumps(redact(data), indent=2, sort_keys=True)
+    data = redact(data)
+    text = json.dumps(data, indent=2, sort_keys=True)
     if format == "json":
         return text + "\n"
     if format == "markdown":

@@ -12,7 +12,12 @@ def test_real_loopback_api(tmp_path):
     thread = threading.Thread(target=httpd.serve_forever, daemon=True)
     thread.start()
     try:
-        with httpx.Client(base_url=f"http://127.0.0.1:{httpd.server_port}", trust_env=False, timeout=2) as c:
+        with httpx.Client(
+            base_url=f"http://127.0.0.1:{httpd.server_port}",
+            trust_env=False,
+            timeout=2,
+            headers={"Content-Type": "application/json"},
+        ) as c:
             service = read(Path("examples/public-api.yaml"))
             response = c.post("/api/v1/slo", json=desired(service))
             assert response.status_code == 200

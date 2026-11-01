@@ -28,6 +28,24 @@ def server(state: Path, port: int = 8765) -> ThreadingHTTPServer:
 
         def respond(self) -> None:
             try:
+                hosts = self.headers.get_all("Host", [])
+                if (
+                    len(hosts) != 1
+                    or hosts[0]
+                    not in {
+                        f"127.0.0.1:{httpd.server_port}",
+                        f"localhost:{httpd.server_port}",
+                    }
+                    or self.headers.get("Origin") is not None
+                ):
+                    self.send_error(403)
+                    return
+                if len(self.headers.get_all("Content-Length", [])) > 1:
+                    self.send_error(400)
+                    return
+                if self.command in ("POST", "PUT") and self.headers.get_content_type() != "application/json":
+                    self.send_error(415)
+                    return
                 size = int(self.headers.get("Content-Length", "0"))
                 if size < 0 or size > 65536:
                     self.send_error(413)
@@ -54,4 +72,5 @@ def server(state: Path, port: int = 8765) -> ThreadingHTTPServer:
             except (ValueError, OSError):
                 self.send_error(400)
 
-    return ThreadingHTTPServer(("127.0.0.1", port), Handler)
+    httpd = ThreadingHTTPServer(("127.0.0.1", port), Handler)
+    return httpd

@@ -8,7 +8,7 @@ from collections.abc import Callable
 from typing import Any, Self
 
 import httpx
-from pydantic import BaseModel, ConfigDict, ValidationError, model_validator
+from pydantic import BaseModel, ConfigDict, model_validator
 
 SITES = {
     s: "https://api." + s
@@ -103,10 +103,12 @@ class Client:
             try:
                 with self.http.stream(method, path, json=payload) as response:
                     content = bytearray()
-                    for chunk in response.iter_bytes():
+                    for chunk in response.iter_bytes(chunk_size=65536):
                         content.extend(chunk)
                         if len(content) > 4_000_000:
                             raise APIError("API response too large")
+            except httpx.DecodingError:
+                raise APIError("invalid API response encoding") from None
             except (httpx.TimeoutException, httpx.TransportError):
                 if method == "GET" and attempt < 3:
                     self.sleep(min(2**attempt, 4))
@@ -129,17 +131,19 @@ class Client:
                 raise APIError(f"Datadog HTTP {response.status_code}; re-plan before retry")
             try:
                 return json.loads(content)
-            except ValueError:
+            except (ValueError, RecursionError):
                 raise APIError("invalid API JSON") from None
         raise APIError("retry limit reached")
 
     def parse(self, item: Any) -> dict[str, Any]:
         try:
             return Resource.model_validate(item).model_dump(exclude_none=True)
-        except ValidationError:
+        except (ValueError, RecursionError):
             raise APIError("invalid resource response schema") from None
 
     def list(self, kind: str) -> list[dict[str, Any]]:
+        if kind not in ("slo", "monitor"):
+            raise APIError("invalid resource kind")
         items: list[dict[str, Any]] = []
         for page in range(100):
             path = (
@@ -169,4 +173,7 @@ class Client:
             if not isinstance(raw, dict) or not isinstance(raw.get("data"), list) or len(raw["data"]) != 1:
                 raise APIError("invalid SLO response")
             raw = raw["data"][0]
-        return self.parse(raw)
+        saved = self.parse(raw)
+        if resource_id is not None and str(saved["id"]) != str(resource_id):
+            raise APIError("update response identity mismatch; inspect remote state before retry")
+        return saved
