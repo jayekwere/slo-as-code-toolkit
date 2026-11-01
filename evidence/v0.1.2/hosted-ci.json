@@ -1,0 +1,14 @@
+{
+  "implementation_commit": "ad7eaf12475f37f5e72767aa20fd9d165a9a70a4",
+  "ci_url": "https://github.com/jayekwere/slo-as-code-toolkit/actions/runs/41311636104",
+  "all_five_jobs": "success",
+  "python_matrix": [
+    "3.12",
+    "3.13",
+    "3.14"
+  ],
+  "tests_per_python": 106,
+  "python312_lines_valid": 661,
+  "python312_lines_covered": 630,
+  "python312_statement_coverage_percent": 95.31
+}
